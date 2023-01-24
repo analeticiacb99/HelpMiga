@@ -11,7 +11,7 @@ import SwiftUI
 struct HelpMigaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
