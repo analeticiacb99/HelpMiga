@@ -9,8 +9,17 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        HelpMigaMapViewRepresentable()
-            .ignoresSafeArea()
+        ZStack (alignment: .top) {
+            HelpMigaMapViewRepresentable()
+                .ignoresSafeArea()
+            
+            LocationSerchActivationView()
+                .padding(.top, 72)
+            
+            MapViewActionButton()
+                .padding(.leading)
+                .padding(.top, 4)
+        }
     }
 }
 
