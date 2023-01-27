@@ -10,11 +10,12 @@ import SwiftUI
 struct LocationSerchActivationView: View {
     var body: some View {
         HStack {
+            
             Rectangle()
                 .fill(Color.black)
                 .frame(width: 8, height: 8)
                 .padding(.horizontal)
-            Text("Where to?")
+            Text("Help!")
                 .foregroundColor(Color(.darkGray))
             
             Spacer()
