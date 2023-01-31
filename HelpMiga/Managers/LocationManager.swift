@@ -12,7 +12,7 @@ class LocationManager: NSObject, ObservableObject {
     static let shared = LocationManager()
     @Published var userLocation: CLLocationCoordinate2D?
     
-    override init() {
+    override init () {
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest

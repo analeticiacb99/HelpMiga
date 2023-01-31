@@ -12,30 +12,38 @@ struct HomeView: View {
     @EnvironmentObject var locationViewModel: LocationSearchViewModel
     
     var body: some View {
-        ZStack (alignment: .top) {
-            HelpMigaMapViewRepresentable(mapState: $mapState)
-                .ignoresSafeArea()
-            
-            if mapState == .searchingForLocation{
-                LocationSearchView(mapState: $mapState)
-            } else if mapState == .noInput {
-                LocationSerchActivationView()
-                    .padding(.top, 72)
-                    .onTapGesture {
-                        withAnimation(.spring()) {
-                            mapState = .searchingForLocation
+        ZStack (alignment: .bottom) {
+            ZStack (alignment: .top) {
+                HelpMigaMapViewRepresentable(mapState: $mapState)
+                    .ignoresSafeArea()
+                
+                if mapState == .searchingForLocation{
+                    LocationSearchView(mapState: $mapState)
+                } else if mapState == .noInput {
+                    LocationSerchActivationView()
+                        .padding(.top, 72)
+                        .onTapGesture {
+                            withAnimation(.spring()) {
+                                mapState = .searchingForLocation
+                        }
                     }
                 }
+                
+                MapViewActionButton(mapState: $mapState)
+                    .padding(.leading)
+                    .padding(.top, 4)
             }
             
-            MapViewActionButton(mapState: $mapState)
-                .padding(.leading)
-                .padding(.top, 4)
-//        } .onReceive(LocationManager.shared.$userLocation) {
-//           location in
-//            if let location = location {
-//                viewModel.userLocation = location
-//            }
+            if mapState == .locationSelected || mapState == .polylineAdded {
+                HelpRequestView()
+                    .transition(.move(edge: .bottom))
+            }
+        }
+        .edgesIgnoringSafeArea(.bottom)
+        .onReceive(LocationManager.shared.$userLocation) { location in
+            if let location = location {
+             locationViewModel.userLocation = location
+            }
         }
     }
 }

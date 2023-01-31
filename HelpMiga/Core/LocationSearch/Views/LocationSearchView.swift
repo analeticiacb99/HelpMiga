@@ -10,7 +10,7 @@ import SwiftUI
 struct LocationSearchView: View {
     @State private var starLocationText = ""
     @Binding var mapState: MapViewState
-    @EnvironmentObject var viewModel : LocationSearchViewModel
+    @EnvironmentObject var viewModel: LocationSearchViewModel
     
     var body: some View {
         VStack {
@@ -58,13 +58,16 @@ struct LocationSearchView: View {
                                                     result.title, subtitle:
                                                     result.subtitle)
                         .onTapGesture {
-                            viewModel.selectLocation(result)
-                            mapState = .locationSelected
+                            withAnimation(.spring()){
+                                viewModel.selectLocation(result)
+                                mapState = .locationSelected
+                            }
                         }
                     }
                 }
             }
         }
+        .background(Color.theme.backgorundColor)
         .background(.white)
     }
 }

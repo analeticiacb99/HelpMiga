@@ -11,21 +11,17 @@ struct LocationSerchActivationView: View {
     var body: some View {
         HStack {
             
-            Rectangle()
-                .fill(Color.black)
-                .frame(width: 8, height: 8)
-                .padding(.horizontal)
-            Text("Help!")
-                .foregroundColor(Color(.darkGray))
-            
-            Spacer()
+            Text("HELP REQUEST")
+                .foregroundColor(Color(.white))
+                .fontWeight(.black)
         }
-        .frame(width: UIScreen.main.bounds.width - 64,
-               height: 50)
+        .frame(width: UIScreen.main.bounds.width - 72,
+               height: 72)
        .background(
        Rectangle()
-           .fill(Color.white)
-           .shadow(color: .black, radius: 6))
+           .fill(Color.blue)
+           .cornerRadius(12)
+       )
     }
 }
 
