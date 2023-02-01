@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E135500298AEA2000A3A867 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1354FF298AEA2000A3A867 /* LoginView.swift */; };
+		3E135502298AEA3900A3A867 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E135501298AEA3900A3A867 /* RegistrationView.swift */; };
+		3E4B13DC298B075800D60C48 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4B13DB298B075800D60C48 /* CustomInputField.swift */; };
 		3E5BBBBD2981A3BB009D7C01 /* MapViewActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5BBBBC2981A3BB009D7C01 /* MapViewActionButton.swift */; };
 		3E5BBBBF2981A79A009D7C01 /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5BBBBE2981A79A009D7C01 /* LocationSearchView.swift */; };
 		3E5BBBC12981AE34009D7C01 /* LocationSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5BBBC02981AE34009D7C01 /* LocationSearchResultCell.swift */; };
 		3E772DBE298824E5002C66F8 /* HelpLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E772DBD298824E5002C66F8 /* HelpLocation.swift */; };
 		3E772DC0298835BD002C66F8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E772DBF298835BD002C66F8 /* Color.swift */; };
 		3E772DC429884545002C66F8 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E772DC329884545002C66F8 /* Double.swift */; };
-		3E7EA1752989B1A6008EDDC5 /* LocationRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7EA1742989B1A6008EDDC5 /* LocationRequestView.swift */; };
-		3E7EA1772989B1DC008EDDC5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7EA1762989B1DC008EDDC5 /* LocationManager.swift */; };
 		3E86586B2985576100341E15 /* HelpRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86586A2985576100341E15 /* HelpRequestView.swift */; };
 		3E86586D298580B500341E15 /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86586C298580B500341E15 /* LocationSearchViewModel.swift */; };
 		3E96565F298301E80068381B /* MapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96565E298301E80068381B /* MapViewState.swift */; };
@@ -29,14 +30,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E1354FF298AEA2000A3A867 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3E135501298AEA3900A3A867 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		3E4B13DB298B075800D60C48 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		3E5BBBBC2981A3BB009D7C01 /* MapViewActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewActionButton.swift; sourceTree = "<group>"; };
 		3E5BBBBE2981A79A009D7C01 /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
 		3E5BBBC02981AE34009D7C01 /* LocationSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultCell.swift; sourceTree = "<group>"; };
 		3E772DBD298824E5002C66F8 /* HelpLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpLocation.swift; sourceTree = "<group>"; };
 		3E772DBF298835BD002C66F8 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		3E772DC329884545002C66F8 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
-		3E7EA1742989B1A6008EDDC5 /* LocationRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRequestView.swift; sourceTree = "<group>"; };
-		3E7EA1762989B1DC008EDDC5 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3E86586A2985576100341E15 /* HelpRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpRequestView.swift; sourceTree = "<group>"; };
 		3E86586C298580B500341E15 /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
 		3E96565E298301E80068381B /* MapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewState.swift; sourceTree = "<group>"; };
@@ -63,11 +65,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3E772DC629885006002C66F8 /* LocationRequest */ = {
+		3E1354FC298AE9BF00A3A867 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				3E1354FE298AE9F700A3A867 /* Views */,
+				3E1354FD298AE9E900A3A867 /* ViewModels */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		3E1354FD298AE9E900A3A867 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = LocationRequest;
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3E1354FE298AE9F700A3A867 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3E1354FF298AEA2000A3A867 /* LoginView.swift */,
+				3E135501298AEA3900A3A867 /* RegistrationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3E4B13DA298B072B00D60C48 /* ReusableItems */ = {
+			isa = PBXGroup;
+			children = (
+				3E4B13DB298B075800D60C48 /* CustomInputField.swift */,
+			);
+			path = ReusableItems;
 			sourceTree = "<group>";
 		};
 		3E8658672985567200341E15 /* Trips */ = {
@@ -97,8 +125,8 @@
 		3EDD9461298049F60070D217 /* HelpMiga */ = {
 			isa = PBXGroup;
 			children = (
+				3E4B13DA298B072B00D60C48 /* ReusableItems */,
 				3EDD9477298054C30070D217 /* App */,
-				3E772DC629885006002C66F8 /* LocationRequest */,
 				3EDD9476298054910070D217 /* Core */,
 				3EDD94752980548C0070D217 /* Extensions */,
 				3EDD9474298054890070D217 /* Managers */,
@@ -114,8 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				3EDD9469298049F70070D217 /* Preview Assets.xcassets */,
-				3E7EA1742989B1A6008EDDC5 /* LocationRequestView.swift */,
-				3E7EA1762989B1DC008EDDC5 /* LocationManager.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -150,6 +176,7 @@
 		3EDD9476298054910070D217 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3E1354FC298AE9BF00A3A867 /* Authentication */,
 				3E8658672985567200341E15 /* Trips */,
 				3EDD948329806AAD0070D217 /* LocationSearch */,
 				3EDD948229806A6E0070D217 /* Home */,
@@ -289,12 +316,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E5BBBBF2981A79A009D7C01 /* LocationSearchView.swift in Sources */,
-				3E7EA1772989B1DC008EDDC5 /* LocationManager.swift in Sources */,
-				3E7EA1752989B1A6008EDDC5 /* LocationRequestView.swift in Sources */,
 				3EDD948129805C8F0070D217 /* LocationManager.swift in Sources */,
 				3E96565F298301E80068381B /* MapViewState.swift in Sources */,
 				3E86586D298580B500341E15 /* LocationSearchViewModel.swift in Sources */,
 				3E5BBBBD2981A3BB009D7C01 /* MapViewActionButton.swift in Sources */,
+				3E135502298AEA3900A3A867 /* RegistrationView.swift in Sources */,
 				3E86586B2985576100341E15 /* HelpRequestView.swift in Sources */,
 				3EDD947F2980569C0070D217 /* HelpMigaMapViewRepresentable.swift in Sources */,
 				3EDD9463298049F60070D217 /* HelpMigaApp.swift in Sources */,
@@ -304,6 +330,8 @@
 				3EDD947D298055A80070D217 /* HomeView.swift in Sources */,
 				3EDD948729806B4A0070D217 /* LocationSerchActivationView.swift in Sources */,
 				3E772DC429884545002C66F8 /* Double.swift in Sources */,
+				3E135500298AEA2000A3A867 /* LoginView.swift in Sources */,
+				3E4B13DC298B075800D60C48 /* CustomInputField.swift in Sources */,
 				3E5BBBC12981AE34009D7C01 /* LocationSearchResultCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
