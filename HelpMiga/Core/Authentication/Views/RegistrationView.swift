@@ -11,6 +11,8 @@ struct RegistrationView: View {
     @State private var fullname = ""
     @State private var email = ""
     @State private var password = ""
+    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         ZStack {
@@ -19,7 +21,7 @@ struct RegistrationView: View {
             
             VStack (alignment: .leading, spacing: 20) {
                 Button {
-                    
+                    dismiss()
                 } label: {
                     Image(systemName: "arrow.left")
                         .font(.title)
@@ -40,12 +42,13 @@ struct RegistrationView: View {
                         CustomInputField(text: $fullname,
                                          title: "Full Name",
                                          placeholder: "Enter your name")
-                        CustomInputField(text: $fullname,
-                                         title: "Full Name",
-                                         placeholder: "Enter your name")
-                        CustomInputField(text: $fullname,
-                                         title: "Full Name",
-                                         placeholder: "Enter your name")
+                        CustomInputField(text: $email,
+                                         title: "Email address",
+                                         placeholder: "name@example.com")
+                        CustomInputField(text: $password,
+                                         title: "Create Password",
+                                         placeholder: "Enter your password",
+                                         isSecureField: true)
                         
                     }
                     .padding(.leading)
@@ -53,7 +56,7 @@ struct RegistrationView: View {
                     Spacer ()
                     
                     Button {
-                        
+                        viewModel.registerUser(withEmail: email, password: password, fullname: fullname)
                     } label: {
                         HStack {
                             Text("SIGN UP")
