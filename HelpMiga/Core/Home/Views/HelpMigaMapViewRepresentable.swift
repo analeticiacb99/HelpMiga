@@ -11,9 +11,9 @@ import MapKit
 struct HelpMigaMapViewRepresentable: UIViewRepresentable {
     
     let mapView = MKMapView()
-    let locationManager = LocationManager.shared
     @Binding var mapState: MapViewState
     @EnvironmentObject var locationViewModel: LocationSearchViewModel
+    @EnvironmentObject var homeViewModel: HomeViewModel
     
     func makeUIView(context: Context) -> some UIView {
         mapView.delegate = context.coordinator
@@ -28,6 +28,7 @@ struct HelpMigaMapViewRepresentable: UIViewRepresentable {
         switch mapState {
         case .noInput:
             context.coordinator.clearMapViewAndRecenterOnUserLocation()
+            context.coordinator.addHelpersToMap(homeViewModel.helpers)
             break
         case .searchingForLocation:
             break
@@ -85,6 +86,16 @@ extension HelpMigaMapViewRepresentable {
             return polyline
         }
         
+//        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//            
+//            if let annotation = annotation as? HelperAnnotation {
+//                let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "helper")
+//                view.image = UIImage(named: "chevron-sign-to-right")
+//                return view
+//            }
+//            return nil
+//        }
+
         // MARK: - Helpers
         
         func addAndSelectAnnotation(withCoordinate coordinate: CLLocationCoordinate2D) {
@@ -118,6 +129,9 @@ extension HelpMigaMapViewRepresentable {
                 parent.mapView.setRegion(currentRegion, animated: true)
             }
         }
+        func addHelpersToMap (_ helpers: [User]) {
+            let annotations = helpers.map({ HelperAnnotation(helper: $0) })
+            self.parent.mapView.addAnnotations(annotations)
+        }
     }
-    
 }

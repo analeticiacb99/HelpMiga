@@ -15,6 +15,7 @@
 		3E226CDD298D953F00DE96A0 /* SideMenuOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E226CDC298D953F00DE96A0 /* SideMenuOptionView.swift */; };
 		3E226CE0298E88B300DE96A0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E226CDF298E88B300DE96A0 /* SettingsView.swift */; };
 		3E226CE4298E8E3D00DE96A0 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E226CE3298E8E3D00DE96A0 /* SettingsRowView.swift */; };
+		3E42A06C298FDE0F00BCA278 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E42A06B298FDE0F00BCA278 /* HomeViewModel.swift */; };
 		3E4B13DC298B075800D60C48 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4B13DB298B075800D60C48 /* CustomInputField.swift */; };
 		3E535892298FC7BB004C22D3 /* DeveloperPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E535891298FC7BB004C22D3 /* DeveloperPreview.swift */; };
 		3E5BBBBD2981A3BB009D7C01 /* MapViewActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5BBBBC2981A3BB009D7C01 /* MapViewActionButton.swift */; };
@@ -33,6 +34,7 @@
 		3E86586D298580B500341E15 /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86586C298580B500341E15 /* LocationSearchViewModel.swift */; };
 		3E96565F298301E80068381B /* MapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96565E298301E80068381B /* MapViewState.swift */; };
 		3EA045D22986E845001CE3B3 /* DistanceCalculatedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA045D12986E845001CE3B3 /* DistanceCalculatedType.swift */; };
+		3EAC873229917E0F00F9332D /* HelperAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAC873129917E0F00F9332D /* HelperAnnotation.swift */; };
 		3EDD9463298049F60070D217 /* HelpMigaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD9462298049F60070D217 /* HelpMigaApp.swift */; };
 		3EDD9467298049F70070D217 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EDD9466298049F70070D217 /* Assets.xcassets */; };
 		3EDD946A298049F70070D217 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EDD9469298049F70070D217 /* Preview Assets.xcassets */; };
@@ -51,6 +53,7 @@
 		3E226CDC298D953F00DE96A0 /* SideMenuOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOptionView.swift; sourceTree = "<group>"; };
 		3E226CDF298E88B300DE96A0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3E226CE3298E8E3D00DE96A0 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		3E42A06B298FDE0F00BCA278 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		3E4B13DB298B075800D60C48 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		3E535891298FC7BB004C22D3 /* DeveloperPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperPreview.swift; sourceTree = "<group>"; };
 		3E5BBBBC2981A3BB009D7C01 /* MapViewActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewActionButton.swift; sourceTree = "<group>"; };
@@ -65,6 +68,7 @@
 		3E86586C298580B500341E15 /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
 		3E96565E298301E80068381B /* MapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewState.swift; sourceTree = "<group>"; };
 		3EA045D12986E845001CE3B3 /* DistanceCalculatedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculatedType.swift; sourceTree = "<group>"; };
+		3EAC873129917E0F00F9332D /* HelperAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperAnnotation.swift; sourceTree = "<group>"; };
 		3EDD945F298049F60070D217 /* HelpMiga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpMiga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EDD9462298049F60070D217 /* HelpMigaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpMigaApp.swift; sourceTree = "<group>"; };
 		3EDD9466298049F70070D217 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 				3EA045D12986E845001CE3B3 /* DistanceCalculatedType.swift */,
 				3E772DBD298824E5002C66F8 /* HelpLocation.swift */,
 				3E226CD3298D478100DE96A0 /* User.swift */,
+				3EAC873129917E0F00F9332D /* HelperAnnotation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 		3EDD947B298055520070D217 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3E42A06B298FDE0F00BCA278 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -418,6 +424,7 @@
 				3E226CE4298E8E3D00DE96A0 /* SettingsRowView.swift in Sources */,
 				3E74A3E5298C5E33005941C0 /* AuthViewModel.swift in Sources */,
 				3E535892298FC7BB004C22D3 /* DeveloperPreview.swift in Sources */,
+				3E42A06C298FDE0F00BCA278 /* HomeViewModel.swift in Sources */,
 				3E86586B2985576100341E15 /* HelpRequestView.swift in Sources */,
 				3E226CE0298E88B300DE96A0 /* SettingsView.swift in Sources */,
 				3E226CD4298D478100DE96A0 /* User.swift in Sources */,
@@ -427,6 +434,7 @@
 				3E226CDD298D953F00DE96A0 /* SideMenuOptionView.swift in Sources */,
 				3E772DC0298835BD002C66F8 /* Color.swift in Sources */,
 				3E772DBE298824E5002C66F8 /* HelpLocation.swift in Sources */,
+				3EAC873229917E0F00F9332D /* HelperAnnotation.swift in Sources */,
 				3EDD947D298055A80070D217 /* HomeView.swift in Sources */,
 				3E226CD9298D724B00DE96A0 /* SideMenuView.swift in Sources */,
 				3EDD948729806B4A0070D217 /* LocationSerchActivationView.swift in Sources */,

@@ -57,7 +57,7 @@ struct SettingsView: View {
                         
                         SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sign out", tintColor: Color(.systemRed))
                             .onTapGesture {
-                                viewModel.signOut()
+                                viewModel.signout()
                             }
                     
                 }
@@ -71,7 +71,7 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SettingsView(user: User(fullname: "John Doe", email: "johndoe@gmail.com", uid: "123456"))
+            SettingsView(user: dev.mockUser)
         } 
     }
 }

@@ -20,6 +20,7 @@ struct SideMenuOptionView: View {
             
             Spacer()
         }
+        .foregroundColor(.black)
     }
 }
 
