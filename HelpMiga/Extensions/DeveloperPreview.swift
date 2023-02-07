@@ -21,7 +21,7 @@ class DeveloperPreview{
                         email: "analeticia@gmail.com",
                         uid: NSUUID().uuidString,
                         coordinates: GeoPoint(latitude: -22.97, longitude: -43.23),
-                        accountMode: .requester
+                        accountMode: .inactive
                         )
 }
 

@@ -10,7 +10,7 @@ import SwiftUI
 struct HelpRequestView: View {
     
     @State private var selectedDistanceCalculatedType: DistanceCalculatedType = .meters
-    @EnvironmentObject var locationViewModel: LocationSearchViewModel
+    @EnvironmentObject var locationViewModel: HomeViewModel
     
     var body: some View {
         VStack{

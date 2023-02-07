@@ -19,7 +19,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct HelpMigaApp: App {
-    @StateObject var locationViewModel = LocationSearchViewModel()
+    @StateObject var locationViewModel = HomeViewModel()
     @StateObject var authViewModel = AuthViewModel()
     @StateObject var homeViewModel = HomeViewModel() 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate

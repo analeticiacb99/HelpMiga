@@ -8,8 +8,8 @@
 import Firebase
 
 enum AccountMode: Int, Codable {
-    case requester = 0
-    case helper = 1
+    case inactive = 0
+    case active = 1
 }
 
 struct User: Codable {

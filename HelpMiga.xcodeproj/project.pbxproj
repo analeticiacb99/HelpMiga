@@ -21,6 +21,9 @@
 		3E5BBBBD2981A3BB009D7C01 /* MapViewActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5BBBBC2981A3BB009D7C01 /* MapViewActionButton.swift */; };
 		3E5BBBBF2981A79A009D7C01 /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5BBBBE2981A79A009D7C01 /* LocationSearchView.swift */; };
 		3E5BBBC12981AE34009D7C01 /* LocationSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5BBBC02981AE34009D7C01 /* LocationSearchResultCell.swift */; };
+		3E6228BC2992B5EA00301C2A /* AcceptRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6228BB2992B5EA00301C2A /* AcceptRequestView.swift */; };
+		3E6228BE2992C3EE00301C2A /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6228BD2992C3EE00301C2A /* Trip.swift */; };
+		3E6BE1922991CED700AB9980 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6BE1912991CED700AB9980 /* UserService.swift */; };
 		3E74A3DA298C5C82005941C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E74A3D9298C5C82005941C0 /* GoogleService-Info.plist */; };
 		3E74A3DD298C5D06005941C0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3E74A3DC298C5D06005941C0 /* FirebaseAuth */; };
 		3E74A3DF298C5D06005941C0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3E74A3DE298C5D06005941C0 /* FirebaseFirestore */; };
@@ -59,6 +62,9 @@
 		3E5BBBBC2981A3BB009D7C01 /* MapViewActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewActionButton.swift; sourceTree = "<group>"; };
 		3E5BBBBE2981A79A009D7C01 /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
 		3E5BBBC02981AE34009D7C01 /* LocationSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultCell.swift; sourceTree = "<group>"; };
+		3E6228BB2992B5EA00301C2A /* AcceptRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptRequestView.swift; sourceTree = "<group>"; };
+		3E6228BD2992C3EE00301C2A /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		3E6BE1912991CED700AB9980 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		3E74A3D9298C5C82005941C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E74A3E4298C5E33005941C0 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthViewModel.swift; path = HelpMiga/Core/Authentication/AuthViewModel.swift; sourceTree = SOURCE_ROOT; };
 		3E772DBD298824E5002C66F8 /* HelpLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpLocation.swift; sourceTree = "<group>"; };
@@ -180,10 +186,19 @@
 			path = ReusableItems;
 			sourceTree = "<group>";
 		};
+		3E6BE1902991CEAC00AB9980 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3E6BE1912991CED700AB9980 /* UserService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		3E8658672985567200341E15 /* Trips */ = {
 			isa = PBXGroup;
 			children = (
 				3E86586A2985576100341E15 /* HelpRequestView.swift */,
+				3E6228BB2992B5EA00301C2A /* AcceptRequestView.swift */,
 			);
 			path = Trips;
 			sourceTree = "<group>";
@@ -207,6 +222,7 @@
 		3EDD9461298049F60070D217 /* HelpMiga */ = {
 			isa = PBXGroup;
 			children = (
+				3E6BE1902991CEAC00AB9980 /* Services */,
 				3E4B13DA298B072B00D60C48 /* ReusableItems */,
 				3EDD9477298054C30070D217 /* App */,
 				3EDD9476298054910070D217 /* Core */,
@@ -237,6 +253,7 @@
 				3E772DBD298824E5002C66F8 /* HelpLocation.swift */,
 				3E226CD3298D478100DE96A0 /* User.swift */,
 				3EAC873129917E0F00F9332D /* HelperAnnotation.swift */,
+				3E6228BD2992C3EE00301C2A /* Trip.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -420,16 +437,19 @@
 				3E226CDB298D7B9F00DE96A0 /* SideMenuOptionViewModel.swift in Sources */,
 				3E86586D298580B500341E15 /* LocationSearchViewModel.swift in Sources */,
 				3E5BBBBD2981A3BB009D7C01 /* MapViewActionButton.swift in Sources */,
+				3E6228BE2992C3EE00301C2A /* Trip.swift in Sources */,
 				3E135502298AEA3900A3A867 /* RegistrationView.swift in Sources */,
 				3E226CE4298E8E3D00DE96A0 /* SettingsRowView.swift in Sources */,
 				3E74A3E5298C5E33005941C0 /* AuthViewModel.swift in Sources */,
 				3E535892298FC7BB004C22D3 /* DeveloperPreview.swift in Sources */,
 				3E42A06C298FDE0F00BCA278 /* HomeViewModel.swift in Sources */,
 				3E86586B2985576100341E15 /* HelpRequestView.swift in Sources */,
+				3E6228BC2992B5EA00301C2A /* AcceptRequestView.swift in Sources */,
 				3E226CE0298E88B300DE96A0 /* SettingsView.swift in Sources */,
 				3E226CD4298D478100DE96A0 /* User.swift in Sources */,
 				3EDD947F2980569C0070D217 /* HelpMigaMapViewRepresentable.swift in Sources */,
 				3EDD9463298049F60070D217 /* HelpMigaApp.swift in Sources */,
+				3E6BE1922991CED700AB9980 /* UserService.swift in Sources */,
 				3EA045D22986E845001CE3B3 /* DistanceCalculatedType.swift in Sources */,
 				3E226CDD298D953F00DE96A0 /* SideMenuOptionView.swift in Sources */,
 				3E772DC0298835BD002C66F8 /* Color.swift in Sources */,

@@ -10,7 +10,7 @@ import SwiftUI
 struct LocationSearchView: View {
     @State private var starLocationText = ""
     @Binding var mapState: MapViewState
-    @EnvironmentObject var viewModel: LocationSearchViewModel
+    @EnvironmentObject var viewModel: HomeViewModel
     
     var body: some View {
         VStack {

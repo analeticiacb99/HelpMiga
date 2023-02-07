@@ -12,7 +12,7 @@ struct HelpMigaMapViewRepresentable: UIViewRepresentable {
     
     let mapView = MKMapView()
     @Binding var mapState: MapViewState
-    @EnvironmentObject var locationViewModel: LocationSearchViewModel
+//    @EnvironmentObject var locationViewModel: HomeViewModel
     @EnvironmentObject var homeViewModel: HomeViewModel
     
     func makeUIView(context: Context) -> some UIView {
@@ -28,12 +28,12 @@ struct HelpMigaMapViewRepresentable: UIViewRepresentable {
         switch mapState {
         case .noInput:
             context.coordinator.clearMapViewAndRecenterOnUserLocation()
-            context.coordinator.addHelpersToMap(homeViewModel.helpers)
+            context.coordinator.addHelpersToMap(homeViewModel.actives)
             break
         case .searchingForLocation:
             break
         case .locationSelected:
-            if let coordinate = locationViewModel.selectedHelpLocation?.coordinate {
+            if let coordinate = homeViewModel.selectedHelpLocation?.coordinate {
                 context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
                 context.coordinator.configurePolyline(withDestinationCoordinate: coordinate)
             }
@@ -86,15 +86,16 @@ extension HelpMigaMapViewRepresentable {
             return polyline
         }
         
-//        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//            
-//            if let annotation = annotation as? HelperAnnotation {
-//                let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "helper")
-//                view.image = UIImage(named: "chevron-sign-to-right")
-//                return view
-//            }
-//            return nil
-//        }
+        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            
+            if let annotation = annotation as? HelperAnnotation {
+                let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "active")
+                view.image = UIImage(systemName: "person.fill")
+                view.annotation = annotation
+                return view
+            }
+            return nil
+        }
 
         // MARK: - Helpers
         
@@ -110,7 +111,7 @@ extension HelpMigaMapViewRepresentable {
         func configurePolyline(withDestinationCoordinate coordinate: CLLocationCoordinate2D) {
             guard let userLocationCoordinate = self.userLocationCoordinate else { return }
             
-            parent.locationViewModel.getDestinationRoute(from: userLocationCoordinate,
+            parent.homeViewModel.getDestinationRoute(from: userLocationCoordinate,
                                 to: coordinate) { route in
                 self.parent.mapView.addOverlay(route.polyline)
                 self.parent.mapState = .polylineAdded
