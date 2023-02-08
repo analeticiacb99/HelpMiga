@@ -1,5 +1,5 @@
 //
-//  HelpLocation.swift
+//  DestinationLocation.swift
 //  HelpMiga
 //
 //  Created by Ana Letícia Branco on 30/01/23.
@@ -7,7 +7,8 @@
 
 import CoreLocation
 
-struct HelpLocation {
+struct DestinationLocation: Identifiable {
+    let id = NSUUID().uuidString 
     let title: String
     let coordinate: CLLocationCoordinate2D
 }

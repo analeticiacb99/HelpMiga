@@ -12,7 +12,6 @@ struct HelpMigaMapViewRepresentable: UIViewRepresentable {
     
     let mapView = MKMapView()
     @Binding var mapState: MapViewState
-//    @EnvironmentObject var locationViewModel: HomeViewModel
     @EnvironmentObject var homeViewModel: HomeViewModel
     
     func makeUIView(context: Context) -> some UIView {
@@ -33,7 +32,7 @@ struct HelpMigaMapViewRepresentable: UIViewRepresentable {
         case .searchingForLocation:
             break
         case .locationSelected:
-            if let coordinate = homeViewModel.selectedHelpLocation?.coordinate {
+            if let coordinate = homeViewModel.selectedDestinationLocation?.coordinate {
                 context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
                 context.coordinator.configurePolyline(withDestinationCoordinate: coordinate)
             }

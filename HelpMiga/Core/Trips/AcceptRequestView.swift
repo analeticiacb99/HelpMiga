@@ -1,5 +1,5 @@
 //
-//   AcceptTripView.swift
+//  AcceptRequestView.swift
 //  HelpMiga
 //
 //  Created by Ana Letícia Branco on 07/02/23.
@@ -8,13 +8,19 @@
 import SwiftUI
 import MapKit
 
-struct _AcceptRequestView: View {
+struct AcceptRequestView: View {
     @State private var region: MKCoordinateRegion
+    let help: Help
+    let annotationItem: DestinationLocation
     
-    init() {
-        let center = CLLocationCoordinate2D(latitude: -22.9777, longitude: 43.2320)
+    init(help: Help) {
+        let center = CLLocationCoordinate2D(latitude: help.mettingLocation.latitude,
+                                            longitude: help.mettingLocation.longitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
         self.region = MKCoordinateRegion(center: center, span: span)
+        
+        self.help = help
+        self.annotationItem = DestinationLocation(title: help.mettingLocationName, coordinate: help.mettingLocation.toCoordinate())
     }
     var body: some View {
         VStack {
@@ -36,7 +42,7 @@ struct _AcceptRequestView: View {
                     Spacer()
                     
                     VStack {
-                        Text("10")
+                        Text("\(help.walkingTimeToRequester)")
                         
                         Text("min")
                     }
@@ -62,7 +68,7 @@ struct _AcceptRequestView: View {
                         .clipShape(Circle())
                     
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("ANA LETICIA")
+                        Text(help.requesterName)
                             .fontWeight(.bold)
                         
                         HStack {
@@ -88,10 +94,10 @@ struct _AcceptRequestView: View {
                 HStack {
                     // addres info
                     VStack(alignment: .leading, spacing: 6) {
-                        Text("Apple Campus")
+                        Text(help.mettingLocationName)
                             .font(.headline)
                         
-                        Text("Infinite Loop 1, Santa Clara County")
+                        Text(help.mettingLocationAddres)
                             .font(.subheadline)
                             .foregroundColor(.gray)
                     }
@@ -100,7 +106,7 @@ struct _AcceptRequestView: View {
                     
                     // distance
                     VStack {
-                        Text("200")
+                        Text(help.distanceToRequester.toDecimal())
                             .font(.headline)
                             .fontWeight(.semibold)
                         Text("m")
@@ -109,8 +115,11 @@ struct _AcceptRequestView: View {
                     }
                 }
                 .padding(.horizontal)
+                
                 // map
-                Map(coordinateRegion: $region)
+                Map(coordinateRegion: $region, annotationItems: [annotationItem]) { item in
+                    MapMarker(coordinate: item.coordinate )
+                }
                     .frame(height: 220)
                     .cornerRadius(10)
                     .shadow(color: .black.opacity(0.6), radius: 10)
@@ -151,12 +160,16 @@ struct _AcceptRequestView: View {
             }
             .padding(.top)
             .padding(.horizontal)
+            .padding(.bottom, 24)
         }
+        .background(Color.theme.backgorundColor)
+        .cornerRadius(12 )
+        .shadow(color: .black, radius: 20)
     }
 }
 
-struct _AcceptRequestView_Previews: PreviewProvider {
+struct AcceptRequestView_Previews: PreviewProvider {
     static var previews: some View {
-        _AcceptRequestView()
+        AcceptRequestView(help: dev.mockHelp)
     }
 }

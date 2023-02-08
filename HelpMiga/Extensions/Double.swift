@@ -16,10 +16,10 @@ extension Double {
         formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 0
         return formatter
-        
     }
+    
     func toDecimal() -> String {
         return distanceFormatter.string (for: self) ?? ""
-    }
+    } 
 }
 

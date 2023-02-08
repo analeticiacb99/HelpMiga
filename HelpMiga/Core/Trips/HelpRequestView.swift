@@ -11,6 +11,7 @@ struct HelpRequestView: View {
     
     @State private var selectedDistanceCalculatedType: DistanceCalculatedType = .meters
     @EnvironmentObject var locationViewModel: HomeViewModel
+    @EnvironmentObject var homeViewModel: HomeViewModel
     
     var body: some View {
         VStack{
@@ -19,7 +20,7 @@ struct HelpRequestView: View {
                 .frame(width: 48, height: 6)
                 .padding(.top, 8)
             
-            // Trip info view
+            // Help info view
             
             HStack {
                 VStack {
@@ -49,7 +50,7 @@ struct HelpRequestView: View {
                         .padding(.bottom, 10)
                         
                         HStack {
-                            if let location = locationViewModel.selectedHelpLocation {
+                            if let location = locationViewModel.selectedDestinationLocation {
                                 Text (location.title)
                                     .font(.system(size: 16, weight: .semibold))
                             }
@@ -73,7 +74,7 @@ struct HelpRequestView: View {
                    Text ("\(type.description):")
                         .font(.system(size: 14, weight:.semibold))
                  
-                Text("\(locationViewModel.computeTripDistance(forType:type).toDecimal()) m")
+                Text("\(locationViewModel.computeDestinationDistance(forType:type).toDecimal()) m")
                       
                 }
             }
@@ -84,7 +85,7 @@ struct HelpRequestView: View {
             // Request help button
             
             Button {
-                
+                homeViewModel.requestHelp()
             } label: {
                 Text("CONFIRM REQUEST")
                     .fontWeight(.black)

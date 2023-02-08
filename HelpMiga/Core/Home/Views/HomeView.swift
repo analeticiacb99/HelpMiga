@@ -10,7 +10,6 @@ import SwiftUI
 struct HomeView: View {
     @State private var mapState = MapViewState.noInput
     @State private var showSideMenu = false 
-   // @EnvironmentObject var locationViewModel: LocationSearchViewModel
     @EnvironmentObject var authViewModel: AuthViewModel
     @EnvironmentObject var homeViewModel: HomeViewModel 
     
@@ -50,8 +49,8 @@ extension HomeView {
                         .onTapGesture {
                             withAnimation(.spring()) {
                                 mapState = .searchingForLocation
+                            }
                         }
-                    }
                 }
                 
                 MapViewActionButton(mapState: $mapState, showSideMenu: $showSideMenu)
@@ -63,21 +62,25 @@ extension HomeView {
                 HelpRequestView()
                     .transition(.move(edge: .bottom))
             }
+            
+            if let help = homeViewModel.help {
+                AcceptRequestView(help: help)
+                    .transition(.move(edge: .bottom))
+            }
         }
         .edgesIgnoringSafeArea(.bottom)
         .onReceive(LocationManager.shared.$userLocation) { location in
             if let location = location {
-             homeViewModel.userLocation = location
+                homeViewModel.userLocation = location
             }
         }
-        .onReceive(homeViewModel.$selectedHelpLocation) { location in
+        .onReceive(homeViewModel.$selectedDestinationLocation) { location in
             if location != nil {
                 self.mapState = .locationSelected
             }
         }
     }
 }
-
     struct HomeView_Previews: PreviewProvider {
         static var previews: some View {
             HomeView()

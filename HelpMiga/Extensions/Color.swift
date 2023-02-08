@@ -12,5 +12,5 @@ extension Color {
 }
 
 struct ColorTheme {
-    let backgorundColor =  Color ("BackgroundColor")
+    let backgorundColor =  Color("BackgroundColor")
 }

@@ -38,7 +38,7 @@ struct MapViewActionButton: View {
             mapState = .noInput
         case .locationSelected, .polylineAdded:
             mapState = .noInput
-            viewModel.selectedHelpLocation = nil
+            viewModel.selectedDestinationLocation = nil
         }
     }
     

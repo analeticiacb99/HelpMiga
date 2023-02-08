@@ -28,14 +28,14 @@ class UserService: ObservableObject {
         }
     
     
-//    static func fetchUser(completion: @escaping(User) -> Void) {
-//        guard let uid = Auth.auth().currentUser?.uid else { return }
-//
-//        Firestore.firestore().collection("users").document(uid).getDocument { snapshot, _ in
-//            print ("DEBUG: did fetch user from firestore")
-//            guard let snapshot = snapshot else { return }
-//            guard let user = try? snapshot.data(as: User.self) else { return }
-//            completion(user)
-//        }
-//    }
+    static func fetchUser(completion: @escaping(User) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+
+        Firestore.firestore().collection("users").document(uid).getDocument { snapshot, _ in
+            print ("DEBUG: did fetch user from firestore")
+            guard let snapshot = snapshot else { return }
+            guard let user = try? snapshot.data(as: User.self) else { return }
+            completion(user)
+        }
+    }
 }
