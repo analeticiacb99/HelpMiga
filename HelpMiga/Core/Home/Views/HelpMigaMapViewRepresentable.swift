@@ -39,6 +39,8 @@ struct HelpMigaMapViewRepresentable: UIViewRepresentable {
             break
         case .polylineAdded:
             break
+        default:
+            break
         }
     }
     func makeCoordinator() -> MapCoordinator {

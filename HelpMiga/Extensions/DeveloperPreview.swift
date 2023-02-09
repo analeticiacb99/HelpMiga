@@ -17,8 +17,7 @@ extension PreviewProvider {
 class DeveloperPreview{
     static let shared = DeveloperPreview()
     
-    let mockHelp = Help(id: NSUUID().uuidString,
-                        requesterUid: NSUUID().uuidString,
+    let mockHelp = Help(requesterUid: NSUUID().uuidString,
                         helperUid: NSUUID().uuidString,
                         requesterName: "Ana Leticia 1",
                         helperName: "Ana Leticia 2",
@@ -26,11 +25,12 @@ class DeveloperPreview{
                         helperLocation: .init(latitude: -22.91, longitude: -43.19),
                         mettingLocationName: "Apple Campus",
                         destinationLocationName: "Starbuks",
-                        mettingLocationAddres: "123 Main street, palo alto CA",
+                        mettingLocationAddress: "123 Main street, palo alto CA",
                         mettingLocation: .init(latitude: -22.91, longitude: -43.19),
                         destinationLocation: .init(latitude: -22.91, longitude: -43.19),
-                        distanceToRequester: 20,
-                        walkingTimeToRequester: 200)
+                        distanceToRequester: 0,
+                        walkingTimeToRequester: 0,
+                        state: .rejected)
 
     let mockUser = User(fullname: "Ana Leticia",
                         email: "analeticia@gmail.com",

@@ -55,6 +55,8 @@ class HomeViewModel: NSObject, ObservableObject {
                 guard user.accountMode == .active else { return }
                 self.fetchActives()
                 self.fetchHelps()
+                self.addTripObserverForRequester()
+                
             }
             .store(in: &cancellables)
     }
@@ -63,6 +65,21 @@ class HomeViewModel: NSObject, ObservableObject {
    // MARK: - Requester API
 
 extension HomeViewModel {
+    
+    func addTripObserverForRequester() {
+        guard let currentUser = currentUser, currentUser.accountMode == .active else { return }
+        Firestore.firestore().collection("helps")
+            .whereField("requesterUid", isEqualTo: currentUser.uid)
+            .addSnapshotListener { snapshot, _ in
+                guard let change = snapshot?.documentChanges.first,
+                        change.type == .added
+                        || change.type == .modified else { return }
+                
+                guard let help = try? change.document.data(as: Help.self) else { return }
+                self.help = help
+                print("DEBUG: Updated help state is \(help.state)")
+        }
+    }
     
     func fetchActives() {
         Firestore.firestore().collection("users")
@@ -88,7 +105,6 @@ extension HomeViewModel {
             guard let placemark = placemark else { return }
             
             let help = Help(
-                id: NSUUID().uuidString,
                 requesterUid: currentUser.uid,
                 helperUid: active.uid,
                 requesterName: currentUser.fullname,
@@ -97,11 +113,12 @@ extension HomeViewModel {
                 helperLocation: active.coordinates,
                 mettingLocationName: placemark.name ?? "Current Location",
                 destinationLocationName: destinationLocation.title,
-                mettingLocationAddres: "123 Main St",
+                mettingLocationAddress: self.addressFromPlacemarck(placemark),
                 mettingLocation: currentUser.coordinates,
                 destinationLocation: destinationGeoPoint,
                 distanceToRequester: 0,
-                walkingTimeToRequester: 0)
+                walkingTimeToRequester: 0,
+                state: .requested)
             
             guard let encodedHelp = try? Firestore.Encoder().encode(help) else { return }
             Firestore.firestore().collection("helps").document().setData(encodedHelp) { _ in
@@ -113,32 +130,66 @@ extension HomeViewModel {
     // MARK: - Helper API
     
 extension HomeViewModel {
+    
+    func fetchHelps() {
+        guard let currentUser = currentUser else { return }
+        Firestore.firestore().collection("helps")
+            .whereField("helperUid", isEqualTo: currentUser.uid)
+            .getDocuments { snapshot, _ in
+                guard let documents = snapshot?.documents, let document = documents.first else { return }
+                guard let help = try? document.data(as: Help.self) else { return }
+                
+                self.help = help
+                
+                self.getDestinationRoute(from: help.helperLocation.toCoordinate(),
+                                         to: help.mettingLocation.toCoordinate()) { route in
+                    
+                    self.help?.walkingTimeToRequester = Int(route.expectedTravelTime / 60)
+                    self.help?.distanceToRequester = route.distance
+                }
+            }
+    }
+    func rejectHelp() {
+        updateHelpState(state: .rejected)
+    }
+    
+    func acceptHelp() {
+        updateHelpState(state: .accepted)
+    }
+    
+    private func updateHelpState(state: HelpState) {
+        guard let help = help else { return }
         
-        func fetchHelps() {
-            guard let currentUser = currentUser else { return }
-            Firestore.firestore().collection("helps")
-                .whereField("helperUid", isEqualTo: currentUser.uid)
-                .getDocuments { snapshot, _ in
-                    guard let documents = snapshot?.documents, let document = documents.first else { return }
-                    guard let help = try? document.data(as: Help.self) else { return }
-                    
-                    self.help = help
-                    
-                    self.getDestinationRoute(from: help.helperLocation.toCoordinate(),
-                                             to: help.mettingLocation.toCoordinate()) { route in
-                        
-                       self.help?.walkingTimeToRequester = Int(route.expectedTravelTime / 60)
-                       self.help?.distanceToRequester = route.distance
-             }
+        var data = ["state": state.rawValue]
+        
+        if state == .accepted {
+            data["walkingTimeToRequester"] = help.walkingTimeToRequester
+        }
+        
+        Firestore.firestore().collection("helps").document(help.id).updateData(data) { _ in
+            print("DEBUG: did update help state\(state)")
         }
     }
 }
-
 // MARK: - Location Search Helpers
 
 extension HomeViewModel {
     
-    
+    func addressFromPlacemarck(_ placemark: CLPlacemark) -> String {
+        var result = ""
+        
+        if let thoroughfare = placemark.thoroughfare {
+          result += thoroughfare
+        }
+        if let subthoroughfare = placemark.subThoroughfare {
+            result += " \(subthoroughfare)"
+        }
+        if let subadiministrativeArea = placemark.subAdministrativeArea {
+            result += ", \(subadiministrativeArea)"
+        }
+        
+        return result
+    }
     
     func getPlacemark(forLocation location:CLLocation, completion: @escaping(CLPlacemark?, Error?) -> Void) {
         CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in

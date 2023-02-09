@@ -58,14 +58,33 @@ extension HomeView {
                     .padding(.top, 4)
             }
             
-            if mapState == .locationSelected || mapState == .polylineAdded {
-                HelpRequestView()
-                    .transition(.move(edge: .bottom))
-            }
+            if let user = authViewModel.currentUser, user.accountMode == .active {
+                
+                if mapState == .locationSelected || mapState == .polylineAdded {
+                    HelpRequestView()
+                        .transition(.move(edge: .bottom))
+                } else if let help = homeViewModel.help, help.requesterUid != user.uid {
+
+//                        if mapState == .helpRequested {
+                            AcceptRequestView(help: help)
+                                .transition(.move(edge: .bottom))
             
-            if let help = homeViewModel.help {
-                AcceptRequestView(help: help)
-                    .transition(.move(edge: .bottom))
+//                        } else if mapState == .helpAccepted {
+//                            MettingRequesterView()
+//                                .transition(.move(edge: .bottom))
+//                        }
+                } else if mapState == .helpRequested {
+                    HelpLoadingView()
+                        .transition(.move(edge: .bottom))
+                } else if mapState == .helpAccepted {
+                    HelpAcceptedView()
+                        .transition(.move(edge: .bottom))
+                } else if mapState == .helpRejected {
+                    // show help rejected view
+                }
+            } else {
+                
+                Text("Usuário não carregado ou inativo")
             }
         }
         .edgesIgnoringSafeArea(.bottom)
@@ -77,6 +96,20 @@ extension HomeView {
         .onReceive(homeViewModel.$selectedDestinationLocation) { location in
             if location != nil {
                 self.mapState = .locationSelected
+            }
+        }
+        .onReceive(homeViewModel.$help) { help in
+            guard let help = help else { return }
+            
+            withAnimation(.spring()) {
+                switch help.state {
+                case .requested:
+                    self.mapState = .helpRequested
+                case .rejected:
+                    self.mapState = .helpRejected
+                case .accepted:
+                    self.mapState = .helpAccepted
+                }
             }
         }
     }

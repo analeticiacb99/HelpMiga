@@ -12,6 +12,7 @@ struct AcceptRequestView: View {
     @State private var region: MKCoordinateRegion
     let help: Help
     let annotationItem: DestinationLocation
+    @EnvironmentObject var viewModel: HomeViewModel
     
     init(help: Help) {
         let center = CLLocationCoordinate2D(latitude: help.mettingLocation.latitude,
@@ -97,7 +98,7 @@ struct AcceptRequestView: View {
                         Text(help.mettingLocationName)
                             .font(.headline)
                         
-                        Text(help.mettingLocationAddres)
+                        Text(help.mettingLocationAddress)
                             .font(.subheadline)
                             .foregroundColor(.gray)
                     }
@@ -131,7 +132,7 @@ struct AcceptRequestView: View {
             // Action buttons
             HStack {
                 Button {
-                    
+                    viewModel.rejectHelp()
                 } label: {
                     Text("Reject")
                         .font(.headline)
@@ -146,7 +147,7 @@ struct AcceptRequestView: View {
                 Spacer()
                 
                 Button {
-                    
+                    viewModel.acceptHelp()
                 } label: {
                     Text("Accept")
                         .font(.headline)
