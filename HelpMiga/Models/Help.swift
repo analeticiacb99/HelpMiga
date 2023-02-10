@@ -12,6 +12,9 @@ enum HelpState: Int, Codable {
     case requested
     case rejected
     case accepted
+    case requesterCancelled
+    case helperCancelled
+    
 }
 
 struct Help: Identifiable, Codable {

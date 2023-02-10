@@ -40,7 +40,9 @@ struct MapViewActionButton: View {
                 .polylineAdded,
                 .helpRejected,
                 .helpAccepted,
-                .helpRequested:
+                .helpRequested,
+                .helpCancelledByHelper,
+                .helpCancelledByRequester:
             mapState = .noInput
             viewModel.selectedDestinationLocation = nil
         
@@ -51,7 +53,14 @@ struct MapViewActionButton: View {
         switch state {
         case .noInput:
             return "line.3.horizontal"
-        case .searchingForLocation, .locationSelected, .polylineAdded, .helpRejected, .helpAccepted, .helpRequested:
+        case .searchingForLocation,
+                .locationSelected,
+                .polylineAdded,
+                .helpRejected,
+                .helpAccepted,
+                .helpRequested,
+                .helpCancelledByHelper,
+                .helpCancelledByRequester:
             return "arrow.left"
             }
         }

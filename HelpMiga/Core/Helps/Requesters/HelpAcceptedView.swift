@@ -80,7 +80,7 @@ struct HelpAcceptedView: View {
             }
         
             Button {
-                print("DEBUG: Cancel help")
+                viewModel.cancelHelpAsRequester()
             } label: {
                 Text("CANCEL HELP")
                     .fontWeight(.black)

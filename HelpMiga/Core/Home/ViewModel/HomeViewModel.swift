@@ -10,6 +10,7 @@ import Firebase
 import FirebaseFirestoreSwift
 import Combine
 import MapKit
+import SwiftUI
 
 class HomeViewModel: NSObject, ObservableObject {
     
@@ -19,7 +20,8 @@ class HomeViewModel: NSObject, ObservableObject {
     @Published var help: Help?
     private let service = UserService.shared
     private var cancellables = Set<AnyCancellable>()
-    private var currentUser: User?
+    var currentUser: User?
+    var routeToMeetingLocation:MKRoute?
     
     // Location search properties
     @Published var results = [MKLocalSearchCompletion]()
@@ -45,6 +47,36 @@ class HomeViewModel: NSObject, ObservableObject {
         searchCompleter.queryFragment = queryFragment
     }
     
+    // MARK: - Helpers
+    
+//    func viewForState(_ state: MapViewState, user: User, help: Help) -> some View {
+//        switch state {
+//        
+//        case .helpRequested:
+//            if help.requesterUid == user.uid {
+//                return AnyView(HelpLoadingView())
+//            } else {
+//                if let help = self.help {
+//                    return AnyView(AcceptRequestView(help: help))
+//                }
+//            }
+//        case .helpAccepted:
+//            if help.requesterUid == user.uid {
+//                return AnyView(HelpAcceptedView())
+//            } else {
+//                if let help = self.help {
+//                    return AnyView(MettingRequesterView(help: help))
+//                }
+//            }
+//        case .helpCancelledByRequester:
+//            return AnyView(Text("Help cancelled by requester"))
+//        case .helpCancelledByHelper:
+//            return AnyView(Text("Help cancelled by helper"))
+//        default:
+//        break
+//        }
+//        return AnyView(Text(""))
+//    }
     // MARK: - USER API
     
     func fetchUser() {
@@ -54,11 +86,24 @@ class HomeViewModel: NSObject, ObservableObject {
                 guard let user = user else { return }
                 guard user.accountMode == .active else { return }
                 self.fetchActives()
-                self.fetchHelps()
-                self.addTripObserverForRequester()
+                self.addHelpObserverForRequester()
+                self.addHelpObserverForHelper()
                 
             }
             .store(in: &cancellables)
+    }
+    private func updateHelpState(state: HelpState) {
+        guard let help = help else { return }
+        
+        var data = ["state": state.rawValue]
+        
+        if state == .accepted {
+            data["walkingTimeToRequester"] = help.walkingTimeToRequester
+        }
+        
+        Firestore.firestore().collection("helps").document(help.id).updateData(data) { _ in
+            print("DEBUG: did update help state\(state)")
+        }
     }
 }
     
@@ -66,7 +111,7 @@ class HomeViewModel: NSObject, ObservableObject {
 
 extension HomeViewModel {
     
-    func addTripObserverForRequester() {
+    func addHelpObserverForRequester() {
         guard let currentUser = currentUser, currentUser.accountMode == .active else { return }
         Firestore.firestore().collection("helps")
             .whereField("requesterUid", isEqualTo: currentUser.uid)
@@ -126,24 +171,33 @@ extension HomeViewModel {
             }
         }
     }
+    
+    func cancelHelpAsRequester() {
+        updateHelpState(state: .requesterCancelled)
+    }
 }
     // MARK: - Helper API
     
 extension HomeViewModel {
     
-    func fetchHelps() {
+    func addHelpObserverForHelper() {
         guard let currentUser = currentUser else { return }
         Firestore.firestore().collection("helps")
             .whereField("helperUid", isEqualTo: currentUser.uid)
-            .getDocuments { snapshot, _ in
-                guard let documents = snapshot?.documents, let document = documents.first else { return }
-                guard let help = try? document.data(as: Help.self) else { return }
+            .addSnapshotListener { snapshot, _ in
+                
+                guard let change = snapshot?.documentChanges.first,
+                      change.type == .added
+                        || change.type == .modified else { return }
+                
+                guard let help = try? change.document.data(as: Help.self) else { return }
                 
                 self.help = help
                 
                 self.getDestinationRoute(from: help.helperLocation.toCoordinate(),
                                          to: help.mettingLocation.toCoordinate()) { route in
                     
+                    self.routeToMeetingLocation = route
                     self.help?.walkingTimeToRequester = Int(route.expectedTravelTime / 60)
                     self.help?.distanceToRequester = route.distance
                 }
@@ -157,18 +211,8 @@ extension HomeViewModel {
         updateHelpState(state: .accepted)
     }
     
-    private func updateHelpState(state: HelpState) {
-        guard let help = help else { return }
-        
-        var data = ["state": state.rawValue]
-        
-        if state == .accepted {
-            data["walkingTimeToRequester"] = help.walkingTimeToRequester
-        }
-        
-        Firestore.firestore().collection("helps").document(help.id).updateData(data) { _ in
-            print("DEBUG: did update help state\(state)")
-        }
+    func cancelHelpAsHelper() {
+        updateHelpState(state: .helperCancelled)
     }
 }
 // MARK: - Location Search Helpers

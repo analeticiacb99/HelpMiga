@@ -58,33 +58,41 @@ extension HomeView {
                     .padding(.top, 4)
             }
             
+            //            if let user = authViewModel.currentUser, user.accountMode == .active {
+            //                homeViewModel.viewForState(mapState, user: user, help: help)
+            //                    .transition(.move(edge: .bottom))
+            //            }
             if let user = authViewModel.currentUser, user.accountMode == .active {
                 
                 if mapState == .locationSelected || mapState == .polylineAdded {
                     HelpRequestView()
                         .transition(.move(edge: .bottom))
-                } else if let help = homeViewModel.help, help.requesterUid != user.uid {
-
-//                        if mapState == .helpRequested {
-                            AcceptRequestView(help: help)
-                                .transition(.move(edge: .bottom))
-            
-//                        } else if mapState == .helpAccepted {
-//                            MettingRequesterView()
-//                                .transition(.move(edge: .bottom))
-//                        }
                 } else if mapState == .helpRequested {
-                    HelpLoadingView()
-                        .transition(.move(edge: .bottom))
+                    if let help = homeViewModel.help, help.requesterUid == user.uid {
+                        HelpLoadingView()
+                            .transition(.move(edge: .bottom))
+                    } else if let help = homeViewModel.help, help.requesterUid != user.uid {
+                        AcceptRequestView(help: help)
+                            .transition(.move(edge: .bottom))
+                    }
                 } else if mapState == .helpAccepted {
-                    HelpAcceptedView()
-                        .transition(.move(edge: .bottom))
+                    if let help = homeViewModel.help, help.requesterUid == user.uid {
+                        HelpAcceptedView()
+                            .transition(.move(edge: .bottom))
+                    } else if let help = homeViewModel.help, help.requesterUid != user.uid {
+                        MettingRequesterView(help:help)
+                            .transition(.move(edge: .bottom))
+                    }
                 } else if mapState == .helpRejected {
-                    // show help rejected view
+                    LocationSerchActivationView()
+                        .transition(.move(edge: .bottom))
                 }
+                
             } else {
                 
-                Text("Usuário não carregado ou inativo")
+                // user is not active
+                
+                
             }
         }
         .edgesIgnoringSafeArea(.bottom)
@@ -109,15 +117,19 @@ extension HomeView {
                     self.mapState = .helpRejected
                 case .accepted:
                     self.mapState = .helpAccepted
+                case .requesterCancelled:
+                    self.mapState = .helpCancelledByRequester
+                case .helperCancelled:
+                    self.mapState = .helpCancelledByHelper
                 }
             }
         }
     }
-}
     struct HomeView_Previews: PreviewProvider {
         static var previews: some View {
             HomeView()
                 .environmentObject(AuthViewModel())
         }
     }
-
+    
+}

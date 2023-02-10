@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MettingRequesterView: View {
+    let help: Help
+    @EnvironmentObject var viewModel: HomeViewModel
+    
     var body: some View {
         VStack {
             Capsule()
@@ -18,7 +21,7 @@ struct MettingRequesterView: View {
             // Would you like to accept view
             VStack {
                 HStack {
-                    Text("Meet Ana Leticia at Apple Campus")
+                    Text("Meet \(help.requesterName) at \(help.mettingLocationName)")
                         .font(.headline)
                         .fontWeight(.semibold)
                         .lineLimit(2)
@@ -28,7 +31,7 @@ struct MettingRequesterView: View {
                     Spacer()
                     
                     VStack {
-                        Text("10")
+                        Text("\(help.walkingTimeToRequester)")
                         
                         Text("min")
                     }
@@ -52,7 +55,7 @@ struct MettingRequesterView: View {
                         .clipShape(Circle())
                     
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Ana Leticia")
+                        Text(help.requesterName)
                             .fontWeight(.bold)
                         
                         HStack {
@@ -75,7 +78,7 @@ struct MettingRequesterView: View {
             .padding()
             
         Button {
-            print("DEBUG: Cancel help")
+            viewModel.cancelHelpAsHelper()
         } label: {
             Text("CANCEL HELP")
                 .fontWeight(.black)
@@ -94,6 +97,6 @@ struct MettingRequesterView: View {
 
 struct MettingRequesterView_Previews: PreviewProvider {
     static var previews: some View {
-        MettingRequesterView()
+        MettingRequesterView(help: dev.mockHelp)
     }
 }

@@ -14,5 +14,7 @@ enum MapViewState {
     case polylineAdded
     case helpRequested
     case helpRejected
-    case helpAccepted 
+    case helpAccepted
+    case helpCancelledByRequester
+    case helpCancelledByHelper
 }
