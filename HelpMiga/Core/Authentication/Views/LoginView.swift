@@ -15,7 +15,7 @@ struct LoginView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(.black)
+                Color(red: 255/255, green: 190/255, blue: 106/255)
                     .ignoresSafeArea()
                 
                 VStack {
@@ -26,9 +26,9 @@ struct LoginView: View {
                     
                     VStack {
                         // image
-                        Image("helpMigaImage")
+                        Image(systemName: "person.circle.fill")
                             .resizable()
-                            .frame(width: 200, height: 200)
+                            .frame(width: 160, height: 160)
                         // title
                         Text("")
                             .foregroundColor(.white)
@@ -48,7 +48,7 @@ struct LoginView: View {
                         } label: {
                             Text("Forgot Password")
                                 .font(.system(size: 13,weight: .semibold))
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                                 .padding(.top)
                         }
                         .frame(maxWidth: .infinity, alignment: .trailing)
@@ -60,44 +60,44 @@ struct LoginView: View {
                     
                     VStack {
                         
-                        // sign up buttons
                         
-                        HStack {
-                            Button {
+                        
+                        // sign in button
+                    
+                        Button {
+                            viewModel.signIn(withEmail: email, password: password)
+                        } label: {
+                            HStack {
+                                Text("SIGN IN")
+                                    .foregroundColor(.black)
+                                Image(systemName: "arrow.right")
+                                    .foregroundColor(.black)
                                 
-                            } label: {
-                                HStack {
-                                    Text("Sign in with Apple")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(.black)
-                                }
-                                .frame(width: UIScreen.main.bounds.width - 64, height: 48)
-                                .background(Rectangle().fill(Color.white)
-                                .cornerRadius(18))
                             }
+                            .frame(width: UIScreen.main.bounds.width - 32, height: 50)
+                            .background(Color.white)
+                            .cornerRadius(10)
                         }
-                    }
+                                            }
                     .padding(.vertical)
                     
                     Spacer()
                     
-                    // sign in button
-                    
-                    Button {
-                        viewModel.signIn(withEmail: email, password: password)
-                    } label: {
-                        HStack {
-                            Text("SIGN IN")
-                                .foregroundColor(.black)
-                            Image(systemName: "arrow.right")
-                                .foregroundColor(.black)
+                    // sign up buttons
+                        
+                        Button {
                             
+                        } label: {
+                            HStack {
+                                Text("Sign in with Apple")
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.black)
+                            }
+                            .frame(width: UIScreen.main.bounds.width - 54, height: 48)
+                            .background(Rectangle().fill(Color.white)
+                            .cornerRadius(18))
                         }
-                        .frame(width: UIScreen.main.bounds.width - 32, height: 50)
-                        .background(Color.white)
-                        .cornerRadius(10)
-                    }
-                    
+                                
                     // sign up button
                     
                     Spacer()
@@ -112,7 +112,7 @@ struct LoginView: View {
                             Text ("Sign UP")
                                 .font(.system(size: 14, weight: .semibold))
                         }
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                     }
                  }
               }

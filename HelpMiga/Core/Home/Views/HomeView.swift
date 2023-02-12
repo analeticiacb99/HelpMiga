@@ -11,7 +11,7 @@ struct HomeView: View {
     @State private var mapState = MapViewState.noInput
     @State private var showSideMenu = false 
     @EnvironmentObject var authViewModel: AuthViewModel
-    @EnvironmentObject var homeViewModel: HomeViewModel 
+    @EnvironmentObject var homeViewModel: HomeViewModel
     
     var body: some View {
         Group {
@@ -58,41 +58,9 @@ extension HomeView {
                     .padding(.top, 4)
             }
             
-            //            if let user = authViewModel.currentUser, user.accountMode == .active {
-            //                homeViewModel.viewForState(mapState, user: user, help: help)
-            //                    .transition(.move(edge: .bottom))
-            //            }
             if let user = authViewModel.currentUser, user.accountMode == .active {
-                
-                if mapState == .locationSelected || mapState == .polylineAdded {
-                    HelpRequestView()
-                        .transition(.move(edge: .bottom))
-                } else if mapState == .helpRequested {
-                    if let help = homeViewModel.help, help.requesterUid == user.uid {
-                        HelpLoadingView()
-                            .transition(.move(edge: .bottom))
-                    } else if let help = homeViewModel.help, help.requesterUid != user.uid {
-                        AcceptRequestView(help: help)
-                            .transition(.move(edge: .bottom))
-                    }
-                } else if mapState == .helpAccepted {
-                    if let help = homeViewModel.help, help.requesterUid == user.uid {
-                        HelpAcceptedView()
-                            .transition(.move(edge: .bottom))
-                    } else if let help = homeViewModel.help, help.requesterUid != user.uid {
-                        MettingRequesterView(help:help)
-                            .transition(.move(edge: .bottom))
-                    }
-                } else if mapState == .helpRejected {
-                    LocationSerchActivationView()
-                        .transition(.move(edge: .bottom))
-                }
-                
-            } else {
-                
-                // user is not active
-                
-                
+                homeViewModel.viewForState(mapState, user: user)
+                    .transition(.move(edge: .bottom))
             }
         }
         .edgesIgnoringSafeArea(.bottom)
@@ -107,7 +75,10 @@ extension HomeView {
             }
         }
         .onReceive(homeViewModel.$help) { help in
-            guard let help = help else { return }
+            guard let help = help else {
+                self.mapState = .noInput
+                return
+            }
             
             withAnimation(.spring()) {
                 switch help.state {
@@ -125,11 +96,12 @@ extension HomeView {
             }
         }
     }
+
     struct HomeView_Previews: PreviewProvider {
         static var previews: some View {
             HomeView()
                 .environmentObject(AuthViewModel())
-        }
-    }
-    
+         
+      }
+   }
 }

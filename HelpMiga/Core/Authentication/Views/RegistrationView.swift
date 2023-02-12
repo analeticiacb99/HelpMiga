@@ -16,7 +16,7 @@ struct RegistrationView: View {
     
     var body: some View {
         ZStack {
-            Color(.black)
+            Color(red: 255/255, green: 190/255, blue: 106/255)
                 .ignoresSafeArea()
             
             VStack (alignment: .leading, spacing: 20) {

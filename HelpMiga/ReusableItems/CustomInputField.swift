@@ -17,7 +17,7 @@ struct CustomInputField: View {
         VStack (alignment: .leading, spacing: 12) {
             // title
             Text(title)
-                .foregroundColor(.white)
+                .foregroundColor(.black)
                 .fontWeight(.semibold)
                 .font(.footnote)
             

@@ -19,7 +19,7 @@ struct LocationSerchActivationView: View {
                height: 72)
        .background(
        Rectangle()
-           .fill(Color.blue)
+           .fill(Color(red: 255/255, green: 190/255, blue: 106/255))
            .cornerRadius(12)
        )
     }

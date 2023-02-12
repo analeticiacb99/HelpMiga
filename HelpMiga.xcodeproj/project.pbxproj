@@ -41,6 +41,7 @@
 		3E8BFEE429958DAA008A5E88 /* MettingRequesterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8BFEE329958DAA008A5E88 /* MettingRequesterView.swift */; };
 		3E96565F298301E80068381B /* MapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96565E298301E80068381B /* MapViewState.swift */; };
 		3EA045D22986E845001CE3B3 /* DistanceCalculatedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA045D12986E845001CE3B3 /* DistanceCalculatedType.swift */; };
+		3EA440472996FB6A00070B42 /* HelpCancelledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA440462996FB6A00070B42 /* HelpCancelledView.swift */; };
 		3EAC873229917E0F00F9332D /* HelperAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAC873129917E0F00F9332D /* HelperAnnotation.swift */; };
 		3EDD9463298049F60070D217 /* HelpMigaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD9462298049F60070D217 /* HelpMigaApp.swift */; };
 		3EDD9467298049F70070D217 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EDD9466298049F70070D217 /* Assets.xcassets */; };
@@ -82,6 +83,7 @@
 		3E8BFEE329958DAA008A5E88 /* MettingRequesterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MettingRequesterView.swift; sourceTree = "<group>"; };
 		3E96565E298301E80068381B /* MapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewState.swift; sourceTree = "<group>"; };
 		3EA045D12986E845001CE3B3 /* DistanceCalculatedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculatedType.swift; sourceTree = "<group>"; };
+		3EA440462996FB6A00070B42 /* HelpCancelledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCancelledView.swift; sourceTree = "<group>"; };
 		3EAC873129917E0F00F9332D /* HelperAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperAnnotation.swift; sourceTree = "<group>"; };
 		3EDD945F298049F60070D217 /* HelpMiga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpMiga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EDD9462298049F60070D217 /* HelpMigaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpMigaApp.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		3E8658672985567200341E15 /* Helps */ = {
 			isa = PBXGroup;
 			children = (
+				3EA440452996FB5D00070B42 /* Shared */,
 				3E8BFEE229958D1F008A5E88 /* Requesters */,
 				3E8BFEE129958D15008A5E88 /* Helpers */,
 			);
@@ -229,6 +232,14 @@
 				3E86586A2985576100341E15 /* HelpRequestView.swift */,
 			);
 			path = Requesters;
+			sourceTree = "<group>";
+		};
+		3EA440452996FB5D00070B42 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				3EA440462996FB6A00070B42 /* HelpCancelledView.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		3EDD9456298049F60070D217 = {
@@ -461,6 +472,7 @@
 			files = (
 				3E5BBBBF2981A79A009D7C01 /* LocationSearchView.swift in Sources */,
 				3EDD948129805C8F0070D217 /* LocationManager.swift in Sources */,
+				3EA440472996FB6A00070B42 /* HelpCancelledView.swift in Sources */,
 				3E96565F298301E80068381B /* MapViewState.swift in Sources */,
 				3E226CDB298D7B9F00DE96A0 /* SideMenuOptionViewModel.swift in Sources */,
 				3E5BBBBD2981A3BB009D7C01 /* MapViewActionButton.swift in Sources */,

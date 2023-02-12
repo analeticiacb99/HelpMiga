@@ -49,34 +49,52 @@ class HomeViewModel: NSObject, ObservableObject {
     
     // MARK: - Helpers
     
-//    func viewForState(_ state: MapViewState, user: User, help: Help) -> some View {
-//        switch state {
-//        
-//        case .helpRequested:
-//            if help.requesterUid == user.uid {
-//                return AnyView(HelpLoadingView())
-//            } else {
-//                if let help = self.help {
-//                    return AnyView(AcceptRequestView(help: help))
-//                }
-//            }
-//        case .helpAccepted:
-//            if help.requesterUid == user.uid {
-//                return AnyView(HelpAcceptedView())
-//            } else {
-//                if let help = self.help {
-//                    return AnyView(MettingRequesterView(help: help))
-//                }
-//            }
-//        case .helpCancelledByRequester:
-//            return AnyView(Text("Help cancelled by requester"))
-//        case .helpCancelledByHelper:
-//            return AnyView(Text("Help cancelled by helper"))
-//        default:
-//        break
-//        }
-//        return AnyView(Text(""))
-//    }
+    var helpCancelledMessage: String {
+        guard let user = currentUser, user.accountMode == .active, let help = help else { return "" }
+        
+        if help.requesterUid == user.uid {
+            if help.state == .helperCancelled {
+                return "Your helper cancelled this help"
+            } else if help.state == .requesterCancelled {
+                return "Your help has been cancelled"
+            }
+        } else {
+            if help.state == .helperCancelled {
+                return "Your help has been cancelled"
+            } else if help.state == .requesterCancelled {
+                return "The help has been cancelled by the requester"
+            }
+        }
+        return ""
+    }
+    
+    func viewForState(_ state: MapViewState, user: User) -> some View {
+        switch state {
+        case .polylineAdded, .locationSelected:
+        return AnyView(HelpRequestView() ) 
+        case .helpRequested:
+            if let help = help, help.requesterUid == user.uid {
+                return AnyView(HelpLoadingView())
+            } else {
+                if let help = self.help {
+                    return AnyView(AcceptRequestView(help: help))
+                }
+            }
+        case .helpAccepted:
+            if let help = help, help.requesterUid == user.uid {
+                return AnyView(HelpAcceptedView())
+            } else {
+                if let help = self.help {
+                    return AnyView(MettingRequesterView(help: help))
+                }
+            }
+        case .helpCancelledByRequester, .helpCancelledByHelper:
+            return AnyView(HelpCancelledView())
+        default:
+        break
+        }
+        return AnyView(Text(""))
+    }
     // MARK: - USER API
     
     func fetchUser() {
@@ -103,6 +121,14 @@ class HomeViewModel: NSObject, ObservableObject {
         
         Firestore.firestore().collection("helps").document(help.id).updateData(data) { _ in
             print("DEBUG: did update help state\(state)")
+        }
+    }
+    
+    func deleteHelp() {
+        guard let help = help else { return }
+        
+        Firestore.firestore().collection("helps").document(help.id).delete { _ in
+            self.help = nil
         }
     }
 }
