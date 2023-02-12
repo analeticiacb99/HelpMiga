@@ -25,10 +25,10 @@ struct CustomInputField: View {
             
             if isSecureField {
                 SecureField(placeholder, text: $text)
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
             } else {
                 TextField(placeholder, text: $text)
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
             }
             // divider
             Rectangle()

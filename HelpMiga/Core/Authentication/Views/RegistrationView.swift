@@ -28,7 +28,7 @@ struct RegistrationView: View {
                         .imageScale(.medium)
                         .padding()
                 }
-                Text("Create new account")
+                Text("Crie uma nova Conta")
                     .font(.system(size: 40))
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.leading)
@@ -40,14 +40,14 @@ struct RegistrationView: View {
                     
                     VStack(spacing: 56) {
                         CustomInputField(text: $fullname,
-                                         title: "Full Name",
-                                         placeholder: "Enter your name")
+                                         title: "Nome completo",
+                                         placeholder: "Digite seu nome")
                         CustomInputField(text: $email,
-                                         title: "Email address",
-                                         placeholder: "name@example.com")
+                                         title: "Email",
+                                         placeholder: "nome@exemplo.com")
                         CustomInputField(text: $password,
-                                         title: "Create Password",
-                                         placeholder: "Enter your password",
+                                         title: "Crie um senha",
+                                         placeholder: "Digite sua senha",
                                          isSecureField: true)
                         
                     }
@@ -59,7 +59,7 @@ struct RegistrationView: View {
                         viewModel.registerUser(withEmail: email, password: password, fullname: fullname)
                     } label: {
                         HStack {
-                            Text("SIGN UP")
+                            Text("CADASTRE-SE")
                                 .foregroundColor(.black)
                             Image(systemName: "arrow.right")
                                 .foregroundColor(.black)

@@ -26,27 +26,33 @@ struct LoginView: View {
                     
                     VStack {
                         // image
-                        Image(systemName: "person.circle.fill")
-                            .resizable()
-                            .frame(width: 160, height: 160)
+//                        Image(systemName: "person.circle.fill")
+//                            .resizable()
+//                            .frame(width: 160, height: 160)
+                        
                         // title
-                        Text("")
+                        Text("Chega Aqui")
+                            .font(.system(size: 48))
+                            .fontWeight(.black)
+                            .frame(width: 320)
                             .foregroundColor(.white)
-                            .font(.largeTitle)
+                        
                     }
+                    
+                    Spacer()
                     
                     // input fields
                     
                     VStack(spacing: 32) {
                         //input field 1
-                        CustomInputField(text: $email, title: "Email Address", placeholder: "name@example.com")
+                        CustomInputField(text: $email, title: "Email", placeholder: "nome@exemplo.com")
                         
                         //input field 2
-                        CustomInputField(text: $password, title: "Password", placeholder: "Enter your Paasword", isSecureField: true)
+                        CustomInputField(text: $password, title: "Senha", placeholder: "Digite sua senha", isSecureField: true)
                         Button {
                             
                         } label: {
-                            Text("Forgot Password")
+                            Text("Esqueceu a senha")
                                 .font(.system(size: 13,weight: .semibold))
                                 .foregroundColor(.black)
                                 .padding(.top)
@@ -107,9 +113,9 @@ struct LoginView: View {
                             .navigationBarBackButtonHidden(true)
                     } label: { 
                         HStack {
-                            Text("Dont't have an account?")
+                            Text("Não tem uma conta?")
                                 .font(.system(size: 14))
-                            Text ("Sign UP")
+                            Text ("CADASTRE-SE")
                                 .font(.system(size: 14, weight: .semibold))
                         }
                         .foregroundColor(.black)

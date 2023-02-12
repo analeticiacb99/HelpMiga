@@ -11,7 +11,7 @@ struct LocationSearchView: View {
     @State private var starLocationText = ""
     @Binding var mapState: MapViewState
     @EnvironmentObject var viewModel: HomeViewModel
-    
+
     var body: some View {
         VStack {
            // header view
@@ -27,7 +27,7 @@ struct LocationSearchView: View {
                         .fill(.black)
                         .frame(width: 6, height: 6)
                 }
-                
+
                 VStack {
                     TextField("Current location", text:
                     $starLocationText)
@@ -35,28 +35,28 @@ struct LocationSearchView: View {
                     .background(Color(
                         .systemGroupedBackground))
                     .padding(.trailing)
-                    
+
                     TextField("Where to?", text:
                                 $viewModel.queryFragment)
                     .frame(height: 32)
                     .background(Color(.systemGray4))
                     .padding(.trailing)
                }
-                        
+
             }
             .padding(.horizontal)
             .padding(.top, 64)
-            
+
             Divider()
                 .padding(.vertical)
-            
+
             // list view
             ScrollView {
                 VStack(alignment: .leading) {
                     ForEach(viewModel.results, id: \.self) {result in
-                        LocationSearchResultCell(title:
-                                                    result.title, subtitle:
-                                                    result.subtitle)
+                        LocationSearchResultCell(
+                            title: result.title, subtitle: result.subtitle
+                        )
                         .onTapGesture {
                             withAnimation(.spring()){
                                 viewModel.selectLocation(result)
@@ -74,6 +74,6 @@ struct LocationSearchView: View {
 
 struct LocationSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationSearchView(mapState: .constant(.searchingForLocation))
+        LocationSearchView(mapState: .constant(.locationSelected))
     }
 }

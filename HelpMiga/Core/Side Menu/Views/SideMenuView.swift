@@ -40,7 +40,7 @@ struct SideMenuView: View {
                 
                 // became a miga
                     VStack (alignment: .leading, spacing: 16){
-                        Text("Do more with your account")
+                        Text("Faça a diferença")
                             .font(.footnote)
                             .fontWeight(.semibold)
                         
@@ -48,7 +48,7 @@ struct SideMenuView: View {
                             Image(systemName: "person.2")
                                 .font(.title2)
                                 .imageScale(.medium)
-                            Text("Become a helper")
+                            Text("Mantenha sua conta ativa")
                                 .font(.system(size: 16, weight: .semibold))
                                 .padding(6)
                         }

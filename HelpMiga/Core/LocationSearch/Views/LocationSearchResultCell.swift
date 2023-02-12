@@ -21,16 +21,16 @@ struct LocationSearchResultCell: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
                     .font(.body)
-                
+
                 Text(subtitle)
                     .font(.system(size: 15))
                     .foregroundColor(.gray)
-                
+
                 Divider()
             }
             .padding(.leading, 8)
             .padding(.vertical, 8)
-        }
+         }
         .padding(.leading)
     }
 }

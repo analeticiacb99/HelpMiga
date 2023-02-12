@@ -48,14 +48,14 @@ struct SettingsView: View {
                         }
                         .padding(8)
                     }
-                    Section ("Settings") {
-                        SettingsRowView(imageName: "bell.circle.fill", title: "Notifications", tintColor: Color(.systemPurple))
+                    Section ("Configurações") {
+                        SettingsRowView(imageName: "bell.circle.fill", title: "Notificações", tintColor: Color(.systemPurple))
                         
                     }
-                    Section ("Account") {
-                        SettingsRowView(imageName: "person.2.circle.fill", title: "Become a helper", tintColor: Color(.systemBlue))
+                    Section ("Conta") {
+                        SettingsRowView(imageName: "person.2.circle.fill", title: "Desativar", tintColor: Color(.systemBlue))
                         
-                        SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sign out", tintColor: Color(.systemRed))
+                        SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sair", tintColor: Color(.systemRed))
                             .onTapGesture {
                                 viewModel.signout()
                             }
@@ -63,7 +63,7 @@ struct SettingsView: View {
                 }
             }
         }
-        .navigationTitle("Settings")
+        .navigationTitle("Configurações")
         .navigationBarTitleDisplayMode(.large)
     }
 }

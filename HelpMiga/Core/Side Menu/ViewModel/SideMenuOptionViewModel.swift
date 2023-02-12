@@ -15,9 +15,9 @@ enum SideMenuOptionViewModel: Int, CaseIterable, Identifiable {
     
     var title: String {
         switch self {
-        case .helpRequests: return "Your Requests"
-        case .settings: return "Settings"
-        case .messages: return "Messages"
+        case .helpRequests: return "Seus Chamados"
+        case .settings: return "Configurações"
+        case .messages: return "Mensagens"
         }
     }
     var imageName: String {

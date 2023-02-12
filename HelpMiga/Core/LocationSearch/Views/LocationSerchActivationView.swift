@@ -27,6 +27,7 @@ struct LocationSerchActivationView: View {
 
 struct LocationSerchActivationView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationSerchActivationView()
+       LocationSerchActivationView()
     }
 }
+
