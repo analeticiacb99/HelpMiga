@@ -21,7 +21,7 @@ struct MettingRequesterView: View {
             // Would you like to accept view
             VStack {
                 HStack {
-                    Text("Meet \(help.requesterName) at \(help.mettingLocationName)")
+                    Text("Encontre \(help.requesterName) em \(help.mettingLocationName)")
                         .font(.headline)
                         .fontWeight(.semibold)
                         .lineLimit(2)
@@ -37,7 +37,7 @@ struct MettingRequesterView: View {
                     }
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color(.systemBlue))
+                    .background(Color(red: 255/255, green: 190/255, blue: 106/255))
                     .cornerRadius(10)
                     
                 }
@@ -48,7 +48,7 @@ struct MettingRequesterView: View {
             VStack {
                 
                 HStack {
-                    Image("female-profile-photo")
+                    Image(systemName: "person.circle")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 80, height: 80)
@@ -58,15 +58,15 @@ struct MettingRequesterView: View {
                         Text(help.requesterName)
                             .fontWeight(.bold)
                         
-                        HStack {
-                            Image(systemName: "star.fill")
-                                .foregroundColor(Color(.systemYellow))
-                                .imageScale(.small)
-                            
-                            Text("4.8")
-                                .font(.footnote)
-                                .foregroundColor(.gray)
-                        }
+//                        HStack {
+//                            Image(systemName: "star.fill")
+//                                .foregroundColor(Color(.systemYellow))
+//                                .imageScale(.small)
+//                            
+//                            Text("4.8")
+//                                .font(.footnote)
+//                                .foregroundColor(.gray)
+//                        }
                     }
                     
                     Spacer()

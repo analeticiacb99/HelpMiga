@@ -33,7 +33,7 @@ struct AcceptRequestView: View {
             // Would you like to accept view
             VStack {
                 HStack {
-                    Text("Would you like to accept this request?")
+                    Text("Você gostaria de aceitar esse pedido de ajuda?")
                         .font(.headline)
                         .fontWeight(.semibold)
                         .lineLimit(2)
@@ -49,7 +49,7 @@ struct AcceptRequestView: View {
                     }
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color(.systemBlue))
+                    .background(Color(red: 255/255, green: 190/255, blue: 106/255))
                     .cornerRadius(10)
                     
                 }
@@ -62,7 +62,7 @@ struct AcceptRequestView: View {
             VStack {
                 
                 HStack {
-                    Image("female-profile-photo")
+                    Image(systemName: "person.circle")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 80, height: 80)
@@ -71,16 +71,16 @@ struct AcceptRequestView: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(help.requesterName)
                             .fontWeight(.bold)
-                        
-                        HStack {
-                            Image(systemName: "star.fill")
-                                .foregroundColor(Color(.systemYellow))
-                                .imageScale(.small)
-                            
-                            Text("4.8")
-                                .font(.footnote)
-                                .foregroundColor(.gray)
-                        }
+//
+//                        HStack {
+//                            Image(systemName: "star.fill")
+//                                .foregroundColor(Color(.systemYellow))
+//                                .imageScale(.small)
+//
+//                            Text("4.8")
+//                                .font(.footnote)
+//                                .foregroundColor(.gray)
+//                        }
                     }
                     
                     Spacer()
@@ -134,7 +134,7 @@ struct AcceptRequestView: View {
                 Button {
                     viewModel.rejectHelp()
                 } label: {
-                    Text("Reject")
+                    Text("Rejeitar")
                         .font(.headline)
                         .fontWeight(.bold)
                         .padding()
@@ -149,12 +149,12 @@ struct AcceptRequestView: View {
                 Button {
                     viewModel.acceptHelp()
                 } label: {
-                    Text("Accept")
+                    Text("Aceitar")
                         .font(.headline)
                         .fontWeight(.bold)
                         .padding()
                         .frame(width: (UIScreen.main.bounds.width / 2) - 32, height: 56)
-                        .background(Color(.systemBlue))
+                        .background(Color(red: 255/255, green: 190/255, blue: 106/255))
                         .cornerRadius(10)
                         .foregroundColor(.white)
                 }

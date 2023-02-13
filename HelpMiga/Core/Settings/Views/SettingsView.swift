@@ -21,8 +21,8 @@ struct SettingsView: View {
             List {
                 Section {
                     // user info header
-                    HStack {
-                        Image("female-profile-photo")
+                    HStack(spacing: 18){
+                        Image(systemName: "person.circle")
                             .resizable()
                             .scaledToFill()
                             .clipShape(Circle())

@@ -22,7 +22,7 @@ struct HelpAcceptedView: View {
                 VStack {
                     HStack{
                         
-                        Text("Meeet your helper at \(help.mettingLocationName)")
+                        Text("Encontre sua ajudante em \(help.mettingLocationName)")
                         .font(.body)
                         .frame(height: 44)
                         .lineLimit(2)
@@ -49,7 +49,7 @@ struct HelpAcceptedView: View {
                 VStack {
                     
                     HStack {
-                        Image("female-profile-photo")
+                        Image(systemName: "person.circle")
                             .resizable()
                             .scaledToFill()
                             .frame(width: 80, height: 80)
@@ -59,15 +59,15 @@ struct HelpAcceptedView: View {
                             Text(help.helperName)
                                 .fontWeight(.bold)
                             
-                            HStack {
-                                Image(systemName: "star.fill")
-                                    .foregroundColor(Color(.systemYellow))
-                                    .imageScale(.small)
-                                
-                                Text("4.8")
-                                    .font(.footnote)
-                                    .foregroundColor(.gray)
-                            }
+//                            HStack {
+//                                Image(systemName: "star.fill")
+//                                    .foregroundColor(Color(.systemYellow))
+//                                    .imageScale(.small)
+//                                
+//                                Text("4.8")
+//                                    .font(.footnote)
+//                                    .foregroundColor(.gray)
+//                            }
                         }
                         
                         Spacer()

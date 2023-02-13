@@ -34,11 +34,11 @@ struct MapViewActionButton: View {
         switch state {
         case .noInput:
             showSideMenu.toggle()
-        case .searchingForLocation:
-            mapState = .noInput
-        case .locationSelected,
-                .polylineAdded,
-                .helpRejected,
+//        case .searchingForLocation:
+//            mapState = .noInput
+//        case .locationSelected,
+//                .polylineAdded,
+          case  .helpRejected,
                 .helpAccepted,
                 .helpRequested,
                 .helpCancelledByHelper,
@@ -53,10 +53,10 @@ struct MapViewActionButton: View {
         switch state {
         case .noInput:
             return "line.3.horizontal"
-        case .searchingForLocation,
-                .locationSelected,
-                .polylineAdded,
-                .helpRejected,
+//        case .searchingForLocation,
+//                .locationSelected,
+//                .polylineAdded,
+          case  .helpRejected,
                 .helpAccepted,
                 .helpRequested,
                 .helpCancelledByHelper,

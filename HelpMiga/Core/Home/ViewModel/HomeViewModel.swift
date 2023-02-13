@@ -70,8 +70,8 @@ class HomeViewModel: NSObject, ObservableObject {
     
     func viewForState(_ state: MapViewState, user: User) -> some View {
         switch state {
-        case .polylineAdded, .locationSelected:
-        return AnyView(HelpRequestView() ) 
+//        case .polylineAdded, .locationSelected:
+//        return AnyView(HelpRequestView() )
         case .helpRequested:
             if let help = help, help.requesterUid == user.uid {
                 return AnyView(HelpLoadingView())
@@ -166,9 +166,9 @@ extension HomeViewModel {
     func requestHelp() {
         guard let active = actives.first else { return }
         guard let currentUser = currentUser else { return }
-        guard let destinationLocation = selectedDestinationLocation else { return }
-        let destinationGeoPoint = GeoPoint(latitude: destinationLocation.coordinate.latitude,
-                                           longitude: destinationLocation.coordinate.longitude)
+//        guard let destinationLocation = selectedDestinationLocation else { return }
+//        let destinationGeoPoint = GeoPoint(latitude: destinationLocation.coordinate.latitude,
+//                                           longitude: destinationLocation.coordinate.longitude)
         let userLocation = CLLocation(latitude: currentUser.coordinates.latitude,
                                       longitude: currentUser.coordinates.longitude)
         
@@ -183,10 +183,10 @@ extension HomeViewModel {
                 requesterLocation: currentUser.coordinates,
                 helperLocation: active.coordinates,
                 mettingLocationName: placemark.name ?? "Current Location",
-                destinationLocationName: destinationLocation.title,
+//                destinationLocationName: destinationLocation.title,
                 mettingLocationAddress: self.addressFromPlacemarck(placemark),
                 mettingLocation: currentUser.coordinates,
-                destinationLocation: destinationGeoPoint,
+//                destinationLocation: destinationGeoPoint,
                 distanceToRequester: 0,
                 walkingTimeToRequester: 0,
                 state: .requested)

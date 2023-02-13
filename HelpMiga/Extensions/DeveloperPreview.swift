@@ -24,10 +24,10 @@ class DeveloperPreview{
                         requesterLocation: .init(latitude: -22.91, longitude: -43.19),
                         helperLocation: .init(latitude: -22.91, longitude: -43.19),
                         mettingLocationName: "Apple Campus",
-                        destinationLocationName: "Starbuks",
+ //                       destinationLocationName: "Starbuks",
                         mettingLocationAddress: "123 Main street, palo alto CA",
                         mettingLocation: .init(latitude: -22.91, longitude: -43.19),
-                        destinationLocation: .init(latitude: -22.91, longitude: -43.19),
+ //                       destinationLocation: .init(latitude: -22.91, longitude: -43.19),
                         distanceToRequester: 0,
                         walkingTimeToRequester: 0,
                         state: .rejected)

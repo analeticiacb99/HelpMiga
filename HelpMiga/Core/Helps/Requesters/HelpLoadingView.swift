@@ -16,7 +16,7 @@ struct HelpLoadingView: View {
                 .padding(.top, 8)
             
             HStack {
-                    Text("Conecting you to a helper...")
+                    Text("Conectando você a uma ajudante...")
                         .padding()
                         .font(.subheadline)
                         

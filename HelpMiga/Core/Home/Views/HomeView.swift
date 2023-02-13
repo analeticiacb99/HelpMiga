@@ -41,14 +41,17 @@ extension HomeView {
                 HelpMigaMapViewRepresentable(mapState: $mapState)
                     .ignoresSafeArea()
                 
-                if mapState == .searchingForLocation{
-                    LocationSearchView(mapState: $mapState)
-                } else if mapState == .noInput {
-                    LocationSerchActivationView()
+//                if mapState == .searchingForLocation{
+//                    LocationSearchView(mapState: $mapState)
+//                } else
+                if mapState == .noInput {
+//                    LocationSerchActivationView()
+                    HelpRequestView()
                         .padding(.top, 72)
                         .onTapGesture {
                             withAnimation(.spring()) {
-                                mapState = .searchingForLocation
+//                                mapState = .searchingForLocation
+                                mapState = .noInput
                             }
                         }
                 }
@@ -69,11 +72,11 @@ extension HomeView {
                 homeViewModel.userLocation = location
             }
         }
-        .onReceive(homeViewModel.$selectedDestinationLocation) { location in
-            if location != nil {
-                self.mapState = .locationSelected
-            }
-        }
+//        .onReceive(homeViewModel.$selectedDestinationLocation) { location in
+//            if location != nil {
+//                self.mapState = .locationSelected
+//            }
+//        }
         .onReceive(homeViewModel.$help) { help in
             guard let help = help else {
                 self.mapState = .noInput
