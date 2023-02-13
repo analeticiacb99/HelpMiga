@@ -19,38 +19,38 @@ struct LoginView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    
+
                     // image and title
-                    
+
                     Spacer()
-                    
+
                     VStack {
                         // image
 //                        Image(systemName: "person.circle.fill")
 //                            .resizable()
 //                            .frame(width: 160, height: 160)
-                        
+
                         // title
                         Text("Chega Aqui")
                             .font(.system(size: 48))
                             .fontWeight(.black)
                             .frame(width: 320)
                             .foregroundColor(.white)
-                        
+
                     }
-                    
+
                     Spacer()
-                    
+
                     // input fields
-                    
+
                     VStack(spacing: 32) {
                         //input field 1
                         CustomInputField(text: $email, title: "Email", placeholder: "nome@exemplo.com")
-                        
+
                         //input field 2
                         CustomInputField(text: $password, title: "Senha", placeholder: "Digite sua senha", isSecureField: true)
                         Button {
-                            
+
                         } label: {
                             Text("Esqueceu a senha")
                                 .font(.system(size: 13,weight: .semibold))
@@ -61,15 +61,15 @@ struct LoginView: View {
                     }
                     .padding(.horizontal)
                     .padding(.top, 12)
-                    
+
                     // social sign in view
-                    
+
                     VStack {
-                        
-                        
-                        
+
+
+
                         // sign in button
-                    
+
                         Button {
                             viewModel.signIn(withEmail: email, password: password)
                         } label: {
@@ -78,7 +78,7 @@ struct LoginView: View {
                                     .foregroundColor(.black)
                                 Image(systemName: "arrow.right")
                                     .foregroundColor(.black)
-                                
+
                             }
                             .frame(width: UIScreen.main.bounds.width - 32, height: 50)
                             .background(Color.white)
@@ -86,13 +86,13 @@ struct LoginView: View {
                         }
                                             }
                     .padding(.vertical)
-                    
+
                     Spacer()
-                    
+
                     // sign up buttons
-                        
+
                         Button {
-                            
+
                         } label: {
                             HStack {
                                 Text("Sign in with Apple")
@@ -103,15 +103,15 @@ struct LoginView: View {
                             .background(Rectangle().fill(Color.white)
                             .cornerRadius(18))
                         }
-                                
+
                     // sign up button
-                    
+
                     Spacer()
-                    
+
                     NavigationLink {
                         RegistrationView()
                             .navigationBarBackButtonHidden(true)
-                    } label: { 
+                    } label: {
                         HStack {
                             Text("Não tem uma conta?")
                                 .font(.system(size: 14))

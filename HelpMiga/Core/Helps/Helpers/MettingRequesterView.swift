@@ -80,7 +80,7 @@ struct MettingRequesterView: View {
         Button {
             viewModel.cancelHelpAsHelper()
         } label: {
-            Text("CANCEL HELP")
+            Text("CANCELAR AJUDA")
                 .fontWeight(.black)
                 .frame(width: UIScreen.main.bounds.width - 32, height: 50)
                 .background(.red)
