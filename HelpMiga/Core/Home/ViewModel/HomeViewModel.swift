@@ -54,15 +54,15 @@ class HomeViewModel: NSObject, ObservableObject {
         
         if help.requesterUid == user.uid {
             if help.state == .helperCancelled {
-                return "Your helper cancelled this help"
+                return "Seu ajudante cancelou a ajuda"
             } else if help.state == .requesterCancelled {
-                return "Your help has been cancelled"
+                return "Sua ajuda foi cancelada"
             }
         } else {
             if help.state == .helperCancelled {
-                return "Your help has been cancelled"
+                return "Sua ajuda foi cancelada"
             } else if help.state == .requesterCancelled {
-                return "The help has been cancelled by the requester"
+                return "Sua solicitante cancelou a ajuda"
             }
         }
         return ""

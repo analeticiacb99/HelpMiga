@@ -43,7 +43,7 @@ struct HelpCancelledView: View {
                 Text("OK")
                     .fontWeight(.black)
                     .frame(width: UIScreen.main.bounds.width - 32, height: 50)
-                    .background(.blue)
+                    .background(Color(red: 255/255, green: 190/255, blue: 106/255))
                     .cornerRadius(10)
                     .foregroundColor(.white)
             }

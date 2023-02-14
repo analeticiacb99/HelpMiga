@@ -38,7 +38,7 @@ struct HelpAcceptedView: View {
                     }
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color(.systemBlue))
+                    .background(Color(red: 255/255, green: 190/255, blue: 106/255))
                     .cornerRadius(10)
                     }
                   .padding()
