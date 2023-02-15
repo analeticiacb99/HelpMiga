@@ -15,13 +15,13 @@ struct AcceptRequestView: View {
     @EnvironmentObject var viewModel: HomeViewModel
     
     init(help: Help) {
-        let center = CLLocationCoordinate2D(latitude: help.mettingLocation.latitude,
-                                            longitude: help.mettingLocation.longitude)
+        let center = CLLocationCoordinate2D(latitude: help.meetingLocation.latitude,
+                                            longitude: help.meetingLocation.longitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
         self.region = MKCoordinateRegion(center: center, span: span)
         
         self.help = help
-        self.annotationItem = DestinationLocation(title: help.mettingLocationName, coordinate: help.mettingLocation.toCoordinate())
+        self.annotationItem = DestinationLocation(title: help.meetingLocationName, coordinate: help.meetingLocation.toCoordinate())
     }
     var body: some View {
         VStack {
@@ -95,10 +95,10 @@ struct AcceptRequestView: View {
                 HStack {
                     // addres info
                     VStack(alignment: .leading, spacing: 6) {
-                        Text(help.mettingLocationName)
+                        Text(help.meetingLocationName)
                             .font(.headline)
                         
-                        Text(help.mettingLocationAddress)
+                        Text(help.meetingLocationAddress)
                             .font(.subheadline)
                             .foregroundColor(.gray)
                     }

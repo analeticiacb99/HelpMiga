@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MettingRequesterView: View {
+struct MeetingRequesterView: View {
     let help: Help
     @EnvironmentObject var viewModel: HomeViewModel
     
@@ -21,7 +21,7 @@ struct MettingRequesterView: View {
             // Would you like to accept view
             VStack {
                 HStack {
-                    Text("Encontre \(help.requesterName) em \(help.mettingLocationName)")
+                    Text("Encontre \(help.requesterName) em \(help.meetingLocationName)")
                         .font(.headline)
                         .fontWeight(.semibold)
                         .lineLimit(2)
@@ -95,8 +95,8 @@ struct MettingRequesterView: View {
     }
 }
 
-struct MettingRequesterView_Previews: PreviewProvider {
+struct MeetingRequesterView_Previews: PreviewProvider {
     static var previews: some View {
-        MettingRequesterView(help: dev.mockHelp)
+        MeetingRequesterView(help: dev.mockHelp)
     }
 }

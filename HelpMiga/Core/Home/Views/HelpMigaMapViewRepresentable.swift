@@ -43,8 +43,8 @@ struct HelpMigaMapViewRepresentable: UIViewRepresentable {
             guard let help = homeViewModel.help else { return }
             guard let helper = homeViewModel.currentUser, helper.accountMode == .active else { return }
             guard let route = homeViewModel.routeToMeetingLocation else { return }
-            context.coordinator.configurePolylineToMettingLocation(withRoute: route)
-            context.coordinator.addAndSelectAnnotation(withCoordinate: help.mettingLocation.toCoordinate())
+            context.coordinator.configurePolylineToMeetingLocation(withRoute: route)
+            context.coordinator.addAndSelectAnnotation(withCoordinate: help.meetingLocation.toCoordinate())
         default:
             break
         }
@@ -106,7 +106,7 @@ extension HelpMigaMapViewRepresentable {
 
         // MARK: - Helpers
         
-        func configurePolylineToMettingLocation(withRoute  route: MKRoute) {
+        func configurePolylineToMeetingLocation(withRoute  route: MKRoute) {
             self.parent.mapView.addOverlay(route.polyline)
             let rect = self.parent.mapView.mapRectThatFits(route.polyline.boundingMapRect, edgePadding: .init(top: 88, left: 32, bottom: 500, right: 32 ))
             self.parent.mapView.setRegion(MKCoordinateRegion (rect), animated: true)

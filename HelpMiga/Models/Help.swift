@@ -25,10 +25,10 @@ struct Help: Identifiable, Codable {
     let helperName: String
     let requesterLocation: GeoPoint
     let helperLocation: GeoPoint
-    let mettingLocationName: String
+    let meetingLocationName: String
 //    let destinationLocationName: String
-    let mettingLocationAddress: String
-    let mettingLocation: GeoPoint
+    let meetingLocationAddress: String
+    let meetingLocation: GeoPoint
 //    let destinationLocation: GeoPoint
     var distanceToRequester: Double
     var walkingTimeToRequester: Int

@@ -22,7 +22,7 @@ struct HelpAcceptedView: View {
                 VStack {
                     HStack{
                         
-                        Text("Encontre sua ajudante em \(help.mettingLocationName)")
+                        Text("Encontre sua ajudante em \(help.meetingLocationName)")
                         .font(.body)
                         .frame(height: 44)
                         .lineLimit(2)

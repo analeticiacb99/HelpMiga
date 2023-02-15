@@ -85,7 +85,7 @@ class HomeViewModel: NSObject, ObservableObject {
                 return AnyView(HelpAcceptedView())
             } else {
                 if let help = self.help {
-                    return AnyView(MettingRequesterView(help: help))
+                    return AnyView(MeetingRequesterView(help: help))
                 }
             }
         case .helpCancelledByRequester, .helpCancelledByHelper:
@@ -182,10 +182,10 @@ extension HomeViewModel {
                 helperName: active.fullname,
                 requesterLocation: currentUser.coordinates,
                 helperLocation: active.coordinates,
-                mettingLocationName: placemark.name ?? "Current Location",
+                meetingLocationName: placemark.name ?? "Current Location",
 //                destinationLocationName: destinationLocation.title,
-                mettingLocationAddress: self.addressFromPlacemarck(placemark),
-                mettingLocation: currentUser.coordinates,
+                meetingLocationAddress: self.addressFromPlacemarck(placemark),
+                meetingLocation: currentUser.coordinates,
 //                destinationLocation: destinationGeoPoint,
                 distanceToRequester: 0,
                 walkingTimeToRequester: 0,
@@ -221,7 +221,7 @@ extension HomeViewModel {
                 self.help = help
                 
                 self.getDestinationRoute(from: help.helperLocation.toCoordinate(),
-                                         to: help.mettingLocation.toCoordinate()) { route in
+                                         to: help.meetingLocation.toCoordinate()) { route in
                     
                     self.routeToMeetingLocation = route
                     self.help?.walkingTimeToRequester = Int(route.expectedTravelTime / 60)
