@@ -26,10 +26,8 @@ struct Help: Identifiable, Codable {
     let requesterLocation: GeoPoint
     let helperLocation: GeoPoint
     let meetingLocationName: String
-//    let destinationLocationName: String
     let meetingLocationAddress: String
     let meetingLocation: GeoPoint
-//    let destinationLocation: GeoPoint
     var distanceToRequester: Double
     var walkingTimeToRequester: Int
     var state: HelpState

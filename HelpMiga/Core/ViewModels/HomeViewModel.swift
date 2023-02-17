@@ -70,8 +70,6 @@ class HomeViewModel: NSObject, ObservableObject {
     
     func viewForState(_ state: MapViewState, user: User) -> some View {
         switch state {
-//        case .polylineAdded, .locationSelected:
-//        return AnyView(HelpRequestView() )
         case .helpRequested:
             if let help = help, help.requesterUid == user.uid {
                 return AnyView(HelpLoadingView())
@@ -166,9 +164,6 @@ extension HomeViewModel {
     func requestHelp() {
         guard let active = actives.first else { return }
         guard let currentUser = currentUser else { return }
-//        guard let destinationLocation = selectedDestinationLocation else { return }
-//        let destinationGeoPoint = GeoPoint(latitude: destinationLocation.coordinate.latitude,
-//                                           longitude: destinationLocation.coordinate.longitude)
         let userLocation = CLLocation(latitude: currentUser.coordinates.latitude,
                                       longitude: currentUser.coordinates.longitude)
         
@@ -183,10 +178,8 @@ extension HomeViewModel {
                 requesterLocation: currentUser.coordinates,
                 helperLocation: active.coordinates,
                 meetingLocationName: placemark.name ?? "Current Location",
-//                destinationLocationName: destinationLocation.title,
                 meetingLocationAddress: self.addressFromPlacemarck(placemark),
                 meetingLocation: currentUser.coordinates,
-//                destinationLocation: destinationGeoPoint,
                 distanceToRequester: 0,
                 walkingTimeToRequester: 0,
                 state: .requested)

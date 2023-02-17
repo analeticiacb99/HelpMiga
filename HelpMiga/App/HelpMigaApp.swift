@@ -19,7 +19,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct HelpMigaApp: App {
-    @StateObject var locationViewModel = HomeViewModel()
     @StateObject var authViewModel = AuthViewModel()
     @StateObject var homeViewModel = HomeViewModel() 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
@@ -27,7 +26,6 @@ struct HelpMigaApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
-                .environmentObject(locationViewModel)
                 .environmentObject(homeViewModel)
                 .environmentObject(authViewModel)
         }

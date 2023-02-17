@@ -29,16 +29,6 @@ struct HelpMigaMapViewRepresentable: UIViewRepresentable {
             context.coordinator.clearMapViewAndRecenterOnUserLocation()
             context.coordinator.addHelpersToMap(homeViewModel.actives)
             break
-//        case .searchingForLocation:
-//            break
-//        case .locationSelected:
-//            if let coordinate = homeViewModel.selectedDestinationLocation?.coordinate {
-//                context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
-//                context.coordinator.configurePolyline(withDestinationCoordinate: coordinate)
-//            }
-//            break
-//        case .polylineAdded:
-//            break
         case .helpAccepted:
             guard let help = homeViewModel.help else { return }
             guard let helper = homeViewModel.currentUser, helper.accountMode == .active else { return }
@@ -97,7 +87,7 @@ extension HelpMigaMapViewRepresentable {
             
             if let annotation = annotation as? HelperAnnotation {
                 let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "active")
-                view.image = UIImage(systemName: "person.fill")
+                view.image = UIImage(systemName: "figure.wave")
                 view.annotation = annotation
                 return view
             }
@@ -120,20 +110,6 @@ extension HelpMigaMapViewRepresentable {
             parent.mapView.selectAnnotation(anno, animated: true)
             
         }
-        
-//        func configurePolyline(withDestinationCoordinate coordinate: CLLocationCoordinate2D) {
-//            guard let userLocationCoordinate = self.userLocationCoordinate else { return }
-//
-//            parent.homeViewModel.getDestinationRoute(from: userLocationCoordinate,
-//                                to: coordinate) { route in
-//                self.parent.mapView.addOverlay(route.polyline)
-//                self.parent.mapState = .polylineAdded
-//                let rect = self.parent.mapView.mapRectThatFits(route.polyline.boundingMapRect, edgePadding: .init(top: 64, left: 32, bottom: 500, right: 32 ))
-//                self.parent.mapView.setRegion(MKCoordinateRegion (rect), animated: true)
-//        }
-//    }
-        
-        
         
         func clearMapViewAndRecenterOnUserLocation () {
             parent.mapView.removeAnnotations(parent.mapView.annotations)

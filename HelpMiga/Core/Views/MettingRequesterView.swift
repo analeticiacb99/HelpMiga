@@ -58,15 +58,7 @@ struct MeetingRequesterView: View {
                         Text(help.requesterName)
                             .fontWeight(.bold)
                         
-//                        HStack {
-//                            Image(systemName: "star.fill")
-//                                .foregroundColor(Color(.systemYellow))
-//                                .imageScale(.small)
-//                            
-//                            Text("4.8")
-//                                .font(.footnote)
-//                                .foregroundColor(.gray)
-//                        }
+
                     }
                     
                     Spacer()

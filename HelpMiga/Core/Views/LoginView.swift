@@ -25,10 +25,6 @@ struct LoginView: View {
                     Spacer()
 
                     VStack {
-                        // image
-//                        Image(systemName: "person.circle.fill")
-//                            .resizable()
-//                            .frame(width: 160, height: 160)
 
                         // title
                         Text("Chega Aqui")

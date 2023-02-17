@@ -59,15 +59,6 @@ struct HelpAcceptedView: View {
                             Text(help.helperName)
                                 .fontWeight(.bold)
                             
-//                            HStack {
-//                                Image(systemName: "star.fill")
-//                                    .foregroundColor(Color(.systemYellow))
-//                                    .imageScale(.small)
-//                                
-//                                Text("4.8")
-//                                    .font(.footnote)
-//                                    .foregroundColor(.gray)
-//                            }
                         }
                         
                         Spacer()
