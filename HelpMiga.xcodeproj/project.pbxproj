@@ -16,13 +16,13 @@
 		3E226CE0298E88B300DE96A0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E226CDF298E88B300DE96A0 /* SettingsView.swift */; };
 		3E226CE4298E8E3D00DE96A0 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E226CE3298E8E3D00DE96A0 /* SettingsRowView.swift */; };
 		3E23230D2994399200630C2F /* GeoPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23230C2994399200630C2F /* GeoPoint.swift */; };
+		3E23B06D29A005E500C567FB /* OnBoarding in Resources */ = {isa = PBXBuildFile; fileRef = 3E23B06C29A005E500C567FB /* OnBoarding */; };
 		3E33E61B299EA94F005B4EF0 /* SignInWithAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33E61A299EA94F005B4EF0 /* SignInWithAppleView.swift */; };
 		3E33E61E299EAD7A005B4EF0 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33E61D299EAD7A005B4EF0 /* AuthError.swift */; };
 		3E42A06C298FDE0F00BCA278 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E42A06B298FDE0F00BCA278 /* HomeViewModel.swift */; };
 		3E4B13DC298B075800D60C48 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4B13DB298B075800D60C48 /* CustomInputField.swift */; };
 		3E535892298FC7BB004C22D3 /* DeveloperPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E535891298FC7BB004C22D3 /* DeveloperPreview.swift */; };
 		3E5BBBBD2981A3BB009D7C01 /* MapViewActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5BBBBC2981A3BB009D7C01 /* MapViewActionButton.swift */; };
-		3E5BBBC12981AE34009D7C01 /* LocationSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5BBBC02981AE34009D7C01 /* LocationSearchResultCell.swift */; };
 		3E6228BC2992B5EA00301C2A /* AcceptRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6228BB2992B5EA00301C2A /* AcceptRequestView.swift */; };
 		3E6228BE2992C3EE00301C2A /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6228BD2992C3EE00301C2A /* Help.swift */; };
 		3E6BE1922991CED700AB9980 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6BE1912991CED700AB9980 /* UserService.swift */; };
@@ -50,8 +50,6 @@
 		3EDD947D298055A80070D217 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD947C298055A80070D217 /* HomeView.swift */; };
 		3EDD947F2980569C0070D217 /* HelpMigaMapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD947E2980569C0070D217 /* HelpMigaMapViewRepresentable.swift */; };
 		3EDD948129805C8F0070D217 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD948029805C8F0070D217 /* LocationManager.swift */; };
-		3EDD948729806B4A0070D217 /* LocationSerchActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD948629806B4A0070D217 /* LocationSerchActivationView.swift */; };
-		3EDF84CA299D78E900F79254 /* OnBoarding in Resources */ = {isa = PBXBuildFile; fileRef = 3EDF84C9299D78E900F79254 /* OnBoarding */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,14 +62,14 @@
 		3E226CDF298E88B300DE96A0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3E226CE3298E8E3D00DE96A0 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		3E23230C2994399200630C2F /* GeoPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoPoint.swift; sourceTree = "<group>"; };
+		3E23B06B29A004AD00C567FB /* HelpMiga.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HelpMiga.entitlements; sourceTree = "<group>"; };
+		3E23B06C29A005E500C567FB /* OnBoarding */ = {isa = PBXFileReference; lastKnownFileType = folder; path = OnBoarding; sourceTree = "<group>"; };
 		3E33E61A299EA94F005B4EF0 /* SignInWithAppleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInWithAppleView.swift; sourceTree = "<group>"; };
-		3E33E61C299EAAE1005B4EF0 /* HelpMiga.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HelpMiga.entitlements; sourceTree = "<group>"; };
 		3E33E61D299EAD7A005B4EF0 /* AuthError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		3E42A06B298FDE0F00BCA278 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		3E4B13DB298B075800D60C48 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		3E535891298FC7BB004C22D3 /* DeveloperPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperPreview.swift; sourceTree = "<group>"; };
 		3E5BBBBC2981A3BB009D7C01 /* MapViewActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewActionButton.swift; sourceTree = "<group>"; };
-		3E5BBBC02981AE34009D7C01 /* LocationSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultCell.swift; sourceTree = "<group>"; };
 		3E6228BB2992B5EA00301C2A /* AcceptRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptRequestView.swift; sourceTree = "<group>"; };
 		3E6228BD2992C3EE00301C2A /* Help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 		3E6BE1912991CED700AB9980 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -97,8 +95,6 @@
 		3EDD947C298055A80070D217 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		3EDD947E2980569C0070D217 /* HelpMigaMapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpMigaMapViewRepresentable.swift; sourceTree = "<group>"; };
 		3EDD948029805C8F0070D217 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		3EDD948629806B4A0070D217 /* LocationSerchActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSerchActivationView.swift; sourceTree = "<group>"; };
-		3EDF84C9299D78E900F79254 /* OnBoarding */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OnBoarding; path = ../../../Downloads/OnBoarding/OnBoarding; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +135,6 @@
 				3EDD947C298055A80070D217 /* HomeView.swift */,
 				3EDD947E2980569C0070D217 /* HelpMigaMapViewRepresentable.swift */,
 				3E5BBBBC2981A3BB009D7C01 /* MapViewActionButton.swift */,
-				3EDD948629806B4A0070D217 /* LocationSerchActivationView.swift */,
-				3E5BBBC02981AE34009D7C01 /* LocationSearchResultCell.swift */,
 				3E86586A2985576100341E15 /* HelpRequestView.swift */,
 				3E8BFEDB299559F7008A5E88 /* HelpLoadingView.swift */,
 				3E6228BB2992B5EA00301C2A /* AcceptRequestView.swift */,
@@ -172,6 +166,7 @@
 		3EDD9456298049F60070D217 = {
 			isa = PBXGroup;
 			children = (
+				3E23B06C29A005E500C567FB /* OnBoarding */,
 				3EDD9461298049F60070D217 /* HelpMiga */,
 				3EDD9460298049F60070D217 /* Products */,
 			);
@@ -188,8 +183,7 @@
 		3EDD9461298049F60070D217 /* HelpMiga */ = {
 			isa = PBXGroup;
 			children = (
-				3E33E61C299EAAE1005B4EF0 /* HelpMiga.entitlements */,
-				3EDF84C9299D78E900F79254 /* OnBoarding */,
+				3E23B06B29A004AD00C567FB /* HelpMiga.entitlements */,
 				3E6BE1902991CEAC00AB9980 /* Services */,
 				3E4B13DA298B072B00D60C48 /* ReusableItems */,
 				3EDD9477298054C30070D217 /* App */,
@@ -330,7 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EDD946A298049F70070D217 /* Preview Assets.xcassets in Resources */,
-				3EDF84CA299D78E900F79254 /* OnBoarding in Resources */,
+				3E23B06D29A005E500C567FB /* OnBoarding in Resources */,
 				3EDD9467298049F70070D217 /* Assets.xcassets in Resources */,
 				3E74A3DA298C5C82005941C0 /* GoogleService-Info.plist in Resources */,
 			);
@@ -372,12 +366,10 @@
 				3E8BFEDE29955ABF008A5E88 /* HelpAcceptedView.swift in Sources */,
 				3E8BFEE429958DAA008A5E88 /* MettingRequesterView.swift in Sources */,
 				3E226CD9298D724B00DE96A0 /* SideMenuView.swift in Sources */,
-				3EDD948729806B4A0070D217 /* LocationSerchActivationView.swift in Sources */,
 				3E33E61B299EA94F005B4EF0 /* SignInWithAppleView.swift in Sources */,
 				3E772DC429884545002C66F8 /* Double.swift in Sources */,
 				3E135500298AEA2000A3A867 /* LoginView.swift in Sources */,
 				3E4B13DC298B075800D60C48 /* CustomInputField.swift in Sources */,
-				3E5BBBC12981AE34009D7C01 /* LocationSearchResultCell.swift in Sources */,
 				3E23230D2994399200630C2F /* GeoPoint.swift in Sources */,
 				3E8BFEE029957101008A5E88 /* Spinner.swift in Sources */,
 			);
@@ -537,7 +529,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = HelpMiga/HelpMiga.entitlements;
+				CODE_SIGN_ENTITLEMENTS = HelpMiga/HelpMigaRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HelpMiga/Preview Content\"";
@@ -558,6 +551,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pessoal.HelpMiga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
